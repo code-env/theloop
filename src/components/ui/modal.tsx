@@ -18,8 +18,8 @@ const Modal: FC<modal> = ({
   return (
     <div
       className={clsx(
-        "fixed top-0 left-0 pointer-events-auto h-screen w-screen bg-red-500/10 backdrop-blur transition duration-300",
-        !isActive && "hidden pointer-events-none",
+        "opacity-0 pointer-events-none top-0 left-0 modal z-[1000] backdrop-blur-lg bg-black/5 w-full h-screen fixed duration-300 transition-all flex items-center justify-center",
+        isActive && "opacity-100 pointer-events-auto",
         className
       )}
       {...others}
