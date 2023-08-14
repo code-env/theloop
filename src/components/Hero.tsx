@@ -49,8 +49,9 @@ const Hero = () => {
       </section>
       <Modal isActive={isActive} setActive={setIsActive}>
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <Input placeholder="Username" type="text" />
-          <Input placeholder="Email" type="email" />
+          <Input placeholder="Username" type="text" {...register("username")} />
+          <Input placeholder="Email" type="email" {...register("email")} />
+          <button className="bg-red-500">Join Waitlist</button>
         </Form>
       </Modal>
     </div>
