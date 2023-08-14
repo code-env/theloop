@@ -5,9 +5,25 @@ import "@/styles/hero.scss";
 import Image from "next/image";
 import dashboard from "../../public/dashboard.svg";
 import Modal from "./ui/modal";
+import Form from "./ui/form";
+import Input from "./ui/input";
+import { useForm } from "react-hook-form";
+import { formSchema, tFormSchema } from "@/lib/types";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const Hero = () => {
   const [isActive, setIsActive] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<tFormSchema>({
+    resolver: zodResolver(formSchema),
+  });
+
+  const onSubmit = async (data: tFormSchema) => {};
 
   return (
     <div className="hero">
@@ -32,7 +48,10 @@ const Hero = () => {
         />
       </section>
       <Modal isActive={isActive} setActive={setIsActive}>
-        <div>this is the zenith</div>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <Input placeholder="Username" type="text" />
+          <Input placeholder="Email" type="email" />
+        </Form>
       </Modal>
     </div>
   );

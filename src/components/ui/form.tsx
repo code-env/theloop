@@ -7,8 +7,14 @@ interface form extends HTMLAttributes<HTMLFormElement> {
 
 const Form: FC<form> = ({ children, className, ...others }) => {
   return (
-    <form className={clsx("flex flex-col gap-4", className)} {...others}>
-      Form
+    <form
+      className={clsx(
+        "flex flex-col gap-4 bg-white w-[90%] h-[90%] rounded-md lg:w-1/2 lg:h-1/2 p-4",
+        className
+      )}
+      {...others}
+    >
+      {children}
     </form>
   );
 };
