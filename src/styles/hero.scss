@@ -3,4 +3,59 @@
 .hero {
   display: flex;
   align-items: center;
+  // position: relative;
+  margin-top: 4rem;
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    .left__text {
+      color: #fff;
+      font-size: 99.363px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: 100%; /* 99.363px */
+
+      span {
+        color: $color-tint;
+      }
+    }
+
+    p {
+      color: #fff;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 28px;
+    }
+
+    button {
+      background: $color-tint;
+      color: $color-blue;
+      padding: 0.5rem 2rem;
+      border-radius: 5px;
+      width: fit-content;
+      transition: $trans;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+
+      &:hover {
+        background: transparent;
+        border: 1px solid $color-tint;
+        color: white;
+      }
+    }
+  }
+
+  &__image {
+    overflow: hidden !important;
+    position: absolute;
+    right: 0;
+
+    img {
+      border-radius: 20px;
+    }
+  }
 }
