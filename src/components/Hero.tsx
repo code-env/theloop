@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-// import "@/styles/hero.scss";
+import "@/styles/hero.scss";
 import Image from "next/image";
 import dashboard from "../../public/dashboard.svg";
 import Modal from "./ui/modal";
@@ -26,9 +26,9 @@ const Hero = () => {
   const onSubmit = async (data: tFormSchema) => {};
 
   return (
-    <div className="flex items-center">
-      <section className="flex flex-col gap-4">
-        <h1 className="text-2xl md:text-6xl font-extrabold xl:text-7xl mt-20">
+    <div className="hero flex items-center">
+      <section className="flex flex-col gap-4 mb-10">
+        <h1 className="text-2xl md:text-6xl font-extrabold xl:text-7xl ">
           LEARN <br /> SHARE <br /> <span className="text-aqua">CONNECT</span>
         </h1>
         <p>
