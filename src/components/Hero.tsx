@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import "@/styles/hero.scss";
 import Image from "next/image";
-import dashboard from "../../public/dashboard.svg";
 import Modal from "./ui/modal";
 import Form from "./ui/form";
 import Input from "./ui/input";
@@ -45,7 +44,7 @@ const Hero = () => {
       <section className="absolute top-1/2 transform -translate-y-1/2 translate-x-[30%] right-0 ">
         <Image
           alt="theloop dashboard"
-          src={dashboard}
+          src="/dashboard.jpg"
           height={500}
           width={700}
           className="rounded md:h-[400px]"
