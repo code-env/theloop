@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-export const headerRoutes = () => {
+export const useHeaderRoutes = () => {
   const routes = useMemo(
     () => [
       {

@@ -9,7 +9,24 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {},
+      backgroundColor: {
+        primary: "var(--color-orange)",
+        secondary: "var(--color-blue)",
+        aqua: "var(--color-aqua)",
+        neutral: "var(--color-neutral)",
+      },
+      textColor: {
+        primary: "var(--color-orange)",
+        secondary: "var(--color-blue)",
+        aqua: "var(--color-aqua)",
+        neutral: "var(--color-neutral)",
+      },
+      borderColor: {
+        primary: "var(--color-orange)",
+        secondary: "var(--color-blue)",
+        aqua: "var(--color-aqua)",
+        neutral: "var(--color-neutral)",
+      },
     },
   },
   plugins: [],

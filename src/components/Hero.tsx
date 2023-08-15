@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import "@/styles/hero.scss";
+// import "@/styles/hero.scss";
 import Image from "next/image";
 import dashboard from "../../public/dashboard.svg";
 import Modal from "./ui/modal";
@@ -26,25 +26,29 @@ const Hero = () => {
   const onSubmit = async (data: tFormSchema) => {};
 
   return (
-    <div className="hero">
-      <section className="hero__left">
-        <h1 className="left__text">
-          LEARN <br /> SHARE <br /> <span>CONNECT</span>
+    <div className="flex items-center">
+      <section className="flex flex-col gap-4">
+        <h1 className="text-2xl md:text-6xl font-extrabold xl:text-7xl mt-20">
+          LEARN <br /> SHARE <br /> <span className="text-aqua">CONNECT</span>
         </h1>
         <p>
           Inspiring and Empowering the Next Gen Of tech <br /> Preneurs through
           an advance digital platform
         </p>
-        <button onClick={(e) => setIsActive((prev) => !prev)}>
+        <button
+          className="bg-aqua rounded text-secondary w-fit px-8 py-2 border border-aqua hover:border-aqua hover:text-white hover:bg-transparent duration-300 transition-all"
+          onClick={(e) => setIsActive((prev) => !prev)}
+        >
           Join Waitlist
         </button>
       </section>
-      <section className="hero__image">
+      <section className="absolute top-1/2 transform -translate-y-1/2 translate-x-[30%] right-0 ">
         <Image
           alt="theloop dashboard"
           src={dashboard}
           height={500}
           width={700}
+          className="rounded md:h-[400px]"
         />
       </section>
       <Modal isActive={isActive} setActive={setIsActive}>
