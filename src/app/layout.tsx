@@ -5,20 +5,20 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    default: "Loop",
-    template: "%s | Loop",
+    default: "Theloop",
+    template: "%s | Theloop",
   },
   description:
     "Transforming Ideas into Digital Success Stories - Crafting Engaging Websites & Powerful Web Applicationsfor Small Businesses",
   openGraph: {
-    title: "Loop",
+    title: "Theloop",
     description:
       "Transforming Ideas into Digital Success Stories - Crafting Engaging Websites & Powerful Web Applicationsfor Small Businesses",
-    url: "https://loop.com",
-    siteName: "loop.com",
+    url: "https://theloop.space",
+    siteName: "theloop.space",
     images: [
       {
-        url: "/https://loop.com/placeholder.png",
+        url: "/https://theloop.space/placeholder.png",
         width: 2322,
         height: 1306,
       },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Loop",
+    title: "Theloop",
     card: "summary_large_image",
   },
   icons: {
