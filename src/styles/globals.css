@@ -10,6 +10,7 @@
   --color-orange: #f4742a;
   --color-blue: #150520;
   --color-neutral: #d9d9d9;
+  --color-aqua: #97f2e8;
 }
 
 .responsive-px {
@@ -20,6 +21,7 @@ html {
   scroll-behavior: smooth !important;
   scroll-padding: 5rem;
   font-family: "Proxima Nova", sans-serif;
+  overflow: hidden !important;
 }
 
 .bg-gradient {
