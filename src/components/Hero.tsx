@@ -71,23 +71,24 @@ const Hero = () => {
           <span className="text-secondary">CONNECT</span>
         </h1>
         <p className="text-lg max-sm:text-base">
-          Inspiring and Empowering the Next Gen Of tech <br /> Preneurs through
-          an advance digital platform
+          Inspiring and Empowering the Next Gen Of tech{" "}
+          <br className="max-sm:hidden" /> Preneurs through an advance digital
+          platform
         </p>
         <button
-          className="bg-secondary rounded text-primary w-fit px-8 py-2 border border-secondary font-semibold hover:border-secondary hover:text-white hover:bg-transparent duration-300 transition-all"
+          className="bg-secondary rounded text-primary w-fit px-8 py-2 border border-secondary font-semibold hover:border-secondary hover:text-white hover:bg-transparent duration-300 transition-all max-sm:w-full"
           onClick={(e) => setIsActive((prev) => !prev)}
         >
           Join Waitlist
         </button>
       </section>
-      <section className="absolute top-1/2 md:transform md:-translate-y-1/2  md:translate-x-[9%] md:right-0  max-sm:relative">
+      <section className="absolute top-1/2 md:transform md:-translate-y-1/2  md:translate-x-[9%] md:right-0  max-sm:relative z-10">
         <Image
           alt="theloop dashboard"
           src="/dashboard.svg"
           height={500}
           width={700}
-          className="rounded-3xl md:h-[450px] max-sm:h-96"
+          className="rounded-3xl md:h-[450px] max-sm:h-60 relative"
         />
       </section>
       <Modal isActive={isActive} setActive={setIsActive}>
