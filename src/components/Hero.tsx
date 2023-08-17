@@ -43,13 +43,13 @@ const Hero = () => {
           Join Waitlist
         </button>
       </section>
-      <section className="absolute top-1/2 transform -translate-y-1/2  translate-x-[15%] right-0 ">
+      <section className="absolute top-1/2 transform -translate-y-1/2  translate-x-[9%] right-0 ">
         <Image
           alt="theloop dashboard"
           src="/dashboard.svg"
           height={500}
           width={700}
-          className="rounded md:h-[450px]"
+          className="rounded-3xl md:h-[450px]"
         />
       </section>
       <Modal isActive={isActive} setActive={setIsActive}>
