@@ -2,10 +2,12 @@ import clsx from "clsx";
 import React, { FC, HTMLAttributes } from "react";
 
 interface input extends HTMLAttributes<HTMLInputElement> {
-    type: string
+  type: string;
+  name: string;
+  value: string;
 }
 
-const Input: FC<input> = ({ className,type, ...others }) => {
+const Input: FC<input> = ({ className, type, name, value, ...others }) => {
   return (
     <input
       className={clsx(
@@ -14,6 +16,8 @@ const Input: FC<input> = ({ className,type, ...others }) => {
       )}
       {...others}
       type={type}
+      name={name}
+      value={value}
     />
   );
 };
