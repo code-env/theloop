@@ -35,7 +35,7 @@ const Navbar = () => {
           <div
             className={clsx(
               "fixed top-0 -right-1/2 w-1/2 h-screen bg-primary md:hidden transition-all duration-300",
-              isActive && "-right-0"
+              isActive && "-right-0 z-50"
             )}
           ></div>
           <Hamburger isActive={isActive} onClick={handleStateChange} />

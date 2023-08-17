@@ -82,7 +82,7 @@ const Hero = () => {
           Join Waitlist
         </button>
       </section>
-      <section className="absolute top-1/2 md:transform md:-translate-y-1/2  md:translate-x-[9%] md:right-0  max-sm:relative">
+      <section className="absolute top-1/2 md:transform md:-translate-y-1/2  md:translate-x-[9%] md:right-0  max-sm:relative z-10">
         <Image
           alt="theloop dashboard"
           src="/dashboard.svg"
