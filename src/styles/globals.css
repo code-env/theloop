@@ -27,3 +27,9 @@ html {
 .bg-gradient {
   background: linear-gradient(71deg, #010823 0%, #041a6f 100%);
 }
+
+@layer {
+  .hamburger {
+    @apply h-1 w-10 bg-black;
+  }
+}
