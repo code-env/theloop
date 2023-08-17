@@ -6,11 +6,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import Logo from "../components/logo";
+import Hamburger from "./ui/hamburger";
 
 const Navbar = () => {
   const routes = useHeaderRoutes();
 
   const [isActive, setIsActive] = useState(false);
+
+  const handleStateChange = () => {
+    setIsActive((prev) => !prev);
+  };
   return (
     <header className="h-20 flex items-center sticky top-0">
       <nav className="w-full flex items-center justify-between">
@@ -22,16 +27,12 @@ const Navbar = () => {
             </li>
           ))}
 
-          <li className="cursor-pointer border border-secondary p-2 px-8 rounded hover:bg-secondary hover:text-primary font-semibold duration-300 transition-all">
+          <li className="cursor-pointer border border-secondary py-2 px-8 rounded hover:bg-secondary hover:text-primary font-semibold duration-300 transition-all max-sm:py-1">
             Get started
           </li>
 
           <div className=""></div>
-          <div className="max-sm:block hidden h-10 w-10 bg-red-300 rounded  flex-col justify-between">
-            <span className="h-1 w-10 bg-black"></span>
-            <span className="h-1 w-10 bg-black"></span>
-            <span className="h-1 w-10 bg-black"></span>
-          </div>
+          <Hamburger isActive={isActive} onClick={handleStateChange} />
         </ul>
       </nav>
     </header>
