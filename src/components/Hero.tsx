@@ -6,7 +6,7 @@ import Image from "next/image";
 import Modal from "./ui/modal";
 import Form from "./ui/form";
 import Input from "./ui/input";
-import Logo from "../components/logo";
+// import Logo from "../components/logo";
 import { useForm } from "react-hook-form";
 import { formSchema, tFormSchema } from "@/lib/types";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -57,7 +57,7 @@ const Hero = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="flex justify-evenly items-center flex-col z-[1001] "
         >
-          <div className="flex flex-col justify-evenly items-center w-full bg-red-500 h-3/4">
+          <div className="flex flex-col justify-evenly items-center w-full h-3/4">
             <Input
               className="px-6 py-3 w-full rounded"
               placeholder="Your name e.g Liz Pike"

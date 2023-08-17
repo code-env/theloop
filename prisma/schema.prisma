@@ -11,15 +11,10 @@ datasource db {
   relationMode = "prisma"
 }
 
-model Portfolio {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  title       String
-  imageUrl    String
-  userId      String
-  description String
-  variant     String
-  githubLink  String?
-  demoLink    String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+model WaitList {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  username  String
+  email     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
