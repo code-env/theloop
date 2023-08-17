@@ -52,6 +52,7 @@ const Hero = () => {
           username: "",
           email: "",
         });
+        setIsActive(false);
         return toast.success("Thanks for joining the waitlist");
       }
     } catch (error: any) {
