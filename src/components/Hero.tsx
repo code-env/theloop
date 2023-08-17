@@ -6,6 +6,7 @@ import Image from "next/image";
 import Modal from "./ui/modal";
 import Form from "./ui/form";
 import Input from "./ui/input";
+import { toast } from "sonner";
 // import { useForm, SubmitHandler } from "react-hook-form";
 // import { formSchema, tFormSchema } from "@/lib/types";
 // import { zodResolver } from "@hookform/resolvers/zod";
@@ -43,7 +44,13 @@ const Hero = () => {
 
       const data = await res.json();
 
-      console.log(data);
+      if (data) {
+        setUserData({
+          username: "",
+          email: "",
+        });
+        return toast.success("Thanks for joining the waitlist");
+      }
     } catch (error: any) {
       console.log("something went wrong", error.message);
     }

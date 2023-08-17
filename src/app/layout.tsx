@@ -1,19 +1,17 @@
 import "@/styles/globals.css";
 
 import { Metadata } from "next";
-// import { Toaster } from "@/providers/Provider";
+import { Toaster } from "@/providers/Providers";
 
 export const metadata: Metadata = {
   title: {
     default: "Theloop",
     template: "%s | Theloop",
   },
-  description:
-    "Transforming Ideas into Digital Success Stories - Crafting Engaging Websites & Powerful Web Applicationsfor Small Businesses",
+  description: "Scalling your entrepreneurial skills",
   openGraph: {
     title: "Theloop",
-    description:
-      "Transforming Ideas into Digital Success Stories - Crafting Engaging Websites & Powerful Web Applicationsfor Small Businesses",
+    description: "Scalling your entrepreneurial skills",
     url: "https://theloop.space",
     siteName: "theloop.space",
     images: [
@@ -53,7 +51,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      {/* <Toaster /> */}
+      <Toaster />
       <body className="font-inter">{children}</body>
     </html>
   );
