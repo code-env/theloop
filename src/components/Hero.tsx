@@ -56,6 +56,7 @@ const Hero = () => {
       }
     } catch (error: any) {
       console.log("something went wrong", error.message);
+      toast.error("Something went wrong");
     } finally {
       setIsLoading(false);
     }
