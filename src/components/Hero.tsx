@@ -6,6 +6,7 @@ import Image from "next/image";
 import Modal from "./ui/modal";
 import Form from "./ui/form";
 import Input from "./ui/input";
+import Logo from "../components/logo";
 import { useForm } from "react-hook-form";
 import { formSchema, tFormSchema } from "@/lib/types";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -30,7 +31,7 @@ const Hero = () => {
         <h1 className="text-2xl md:text-6xl font-extrabold xl:text-7xl 2xl:text-8xl">
           LEARN <br /> SHARE <br /> <span className="text-aqua">CONNECT</span>
         </h1>
-        <p>
+        <p className="text-lg">
           Inspiring and Empowering the Next Gen Of tech <br /> Preneurs through
           an advance digital platform
         </p>
@@ -41,20 +42,25 @@ const Hero = () => {
           Join Waitlist
         </button>
       </section>
-      <section className="absolute top-1/2 transform -translate-y-1/2 translate-x-[30%] right-0 ">
+      <section className="absolute top-1/2 transform -translate-y-1/2 translate-x-[25%] right-0 ">
         <Image
           alt="theloop dashboard"
           src="/dashboard.jpg"
           height={500}
           width={700}
-          className="rounded md:h-[400px]"
+          className="rounded md:h-[450px]"
         />
       </section>
       <Modal isActive={isActive} setActive={setIsActive}>
-        <Form onSubmit={handleSubmit(onSubmit)}>
-          <Input placeholder="Username" type="text" {...register("username")} />
-          <Input placeholder="Email" type="email" {...register("email")} />
-          <button className="bg-red-500">Join Waitlist</button>
+        <Form onSubmit={handleSubmit(onSubmit)} className="flex justify-evenly items-center flex-col z-[1001]">
+        <div className="scale-150">
+          <Logo />
+        </div>
+          <div className="flex flex-col justify-evenly items-center w-2/3 h-3/4">
+            <Input className="px-6 py-3 w-4/5 rounded" placeholder="Your name e.g Liz Pike" type="text" {...register("username")} />
+            <Input className="px-6 py-3 w-4/5 rounded" placeholder="Your email e.g lizpike@theloop.com" type="email" {...register("email")} />
+            <button className="bg-red-500 px-6 py-3 w-4/5 rounded">Join Waitlist</button>
+          </div>
         </Form>
       </Modal>
     </div>
