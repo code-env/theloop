@@ -6,7 +6,7 @@ import Image from "next/image";
 import Modal from "./ui/modal";
 import Form from "./ui/form";
 import Input from "./ui/input";
-import Logo from "../components/logo";
+// import Logo from "../components/logo";
 import { useForm } from "react-hook-form";
 import { formSchema, tFormSchema } from "@/lib/types";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -23,7 +23,14 @@ const Hero = () => {
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = async (data: tFormSchema) => {};
+  const onSubmit = async (data: tFormSchema) => {
+    console.log(data);
+    const res = await fetch("/api/waitlist", {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+    console.log(res.json());
+  };
 
   return (
     <div className="hero flex items-center max-w-7xl mx-auto max-sm:flex-col-reverse max-sm:gap-10 max-sm:py-10 max-sm:h-fit">
@@ -55,25 +62,27 @@ const Hero = () => {
       <Modal isActive={isActive} setActive={setIsActive}>
         <Form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex justify-evenly items-center flex-col z-[1001]"
+          className="flex justify-evenly items-center flex-col z-[1001] "
         >
-          <div className="scale-150">
-            <Logo />
-          </div>
-          <div className="flex flex-col justify-evenly items-center w-2/3 h-3/4">
+          <div className="flex flex-col justify-evenly items-center w-full h-3/4">
             <Input
-              className="px-6 py-3 w-4/5 rounded"
+              className="px-6 py-3 w-full rounded"
               placeholder="Your name e.g Liz Pike"
               type="text"
               {...register("username")}
             />
+            {errors.username && <p>error</p>}
             <Input
-              className="px-6 py-3 w-4/5 rounded"
+              className="px-6 py-3 w-full rounded"
               placeholder="Your email e.g lizpike@theloop.com"
               type="email"
               {...register("email")}
             />
-            <button className="bg-red-500 px-6 py-3 w-4/5 rounded">
+            {errors.username && <p>error</p>}
+            <button
+              type="submit"
+              className="bg-secondary text-primary font-semibold hover:bg-primary transition-all duration-300 hover:text-secondary px-6 py-3 w-4/5 rounded"
+            >
               Join Waitlist
             </button>
           </div>

@@ -28,8 +28,8 @@ const Modal: FC<modal> = ({
         // this ugly trick is gonna bite in the ass
         // in the future
         // quick fix: please this should be changed later
-        if ((e.target as any).id == "modal") setActive(false)}
-        }
+        if ((e.target as any).id == "modal") setActive(false);
+      }}
     >
       <button
         className="absolute top-10 right-10"
