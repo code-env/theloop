@@ -42,7 +42,7 @@ const Hero = () => {
           Join Waitlist
         </button>
       </section>
-      <section className="absolute top-1/2 transform -translate-y-1/2 translate-x-[30%] right-0 ">
+      <section className="absolute top-1/2 transform -translate-y-1/2 translate-x-[25%] right-0 ">
         <Image
           alt="theloop dashboard"
           src="/dashboard.jpg"
