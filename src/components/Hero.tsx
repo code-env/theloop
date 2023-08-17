@@ -55,25 +55,22 @@ const Hero = () => {
       <Modal isActive={isActive} setActive={setIsActive}>
         <Form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex justify-evenly items-center flex-col z-[1001]"
+          className="flex justify-evenly items-center flex-col z-[1001] "
         >
-          <div className="scale-150">
-            <Logo />
-          </div>
-          <div className="flex flex-col justify-evenly items-center w-2/3 h-3/4">
+          <div className="flex flex-col justify-evenly items-center w-full bg-red-500 h-3/4">
             <Input
-              className="px-6 py-3 w-4/5 rounded"
+              className="px-6 py-3 w-full rounded"
               placeholder="Your name e.g Liz Pike"
               type="text"
               {...register("username")}
             />
             <Input
-              className="px-6 py-3 w-4/5 rounded"
+              className="px-6 py-3 w-full rounded"
               placeholder="Your email e.g lizpike@theloop.com"
               type="email"
               {...register("email")}
             />
-            <button className="bg-red-500 px-6 py-3 w-4/5 rounded">
+            <button className="bg-secondary text-primary font-semibold hover:bg-primary transition-all duration-300 hover:text-secondary px-6 py-3 w-4/5 rounded">
               Join Waitlist
             </button>
           </div>
