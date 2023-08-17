@@ -47,7 +47,7 @@ const Hero = () => {
           src="/dashboard.jpg"
           height={500}
           width={700}
-          className="rounded md:h-[400px]"
+          className="rounded md:h-[450px]"
         />
       </section>
       <Modal isActive={isActive} setActive={setIsActive}>
