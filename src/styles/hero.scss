@@ -2,4 +2,10 @@
 
 .hero {
   height: calc(100vh - 80px);
+
+  @media not all and (min-width: 640px) {
+    height: fit-content;
+    top: initial;
+    transform: initial;
+  }
 }

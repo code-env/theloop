@@ -26,13 +26,13 @@ const Hero = () => {
   const onSubmit = async (data: tFormSchema) => {};
 
   return (
-    <div className="hero flex items-center max-w-7xl mx-auto">
+    <div className="hero flex items-center max-w-7xl mx-auto max-sm:flex-col-reverse max-sm:gap-10 max-sm:py-10 max-sm:h-fit">
       <section className="flex flex-col gap-4 mb-10">
-        <h1 className="text-2xl md:text-6xl font-extrabold xl:text-7xl 2xl:text-8xl">
-          LEARN <br /> SHARE <br />{" "}
+        <h1 className="text-2xl md:text-6xl font-extrabold xl:text-7xl 2xl:text-8xl max-sm:text-3xl">
+          LEARN <br className="max-sm:hidden" /> SHARE <br />{" "}
           <span className="text-secondary">CONNECT</span>
         </h1>
-        <p className="text-lg">
+        <p className="text-lg max-sm:text-base">
           Inspiring and Empowering the Next Gen Of tech <br /> Preneurs through
           an advance digital platform
         </p>
@@ -43,7 +43,7 @@ const Hero = () => {
           Join Waitlist
         </button>
       </section>
-      <section className="absolute top-1/2 transform -translate-y-1/2  translate-x-[9%] right-0 ">
+      <section className="absolute top-1/2 md:transform md:-translate-y-1/2  md:translate-x-[9%] md:right-0  max-sm:relative">
         <Image
           alt="theloop dashboard"
           src="/dashboard.svg"
