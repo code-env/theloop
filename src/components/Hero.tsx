@@ -6,6 +6,8 @@ import Image from "next/image";
 import Modal from "./ui/modal";
 import Form from "./ui/form";
 import Input from "./ui/input";
+import { toast } from "sonner";
+import { isModuleNamespaceObject } from "util/types";
 // import { useForm, SubmitHandler } from "react-hook-form";
 // import { formSchema, tFormSchema } from "@/lib/types";
 // import { zodResolver } from "@hookform/resolvers/zod";
@@ -17,6 +19,7 @@ interface User {
 
 const Hero = () => {
   const [isActive, setIsActive] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [userData, setUserData] = useState<User>({
     username: "",
     email: "",
@@ -36,6 +39,7 @@ const Hero = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      setIsLoading(true);
       const res = await fetch("/api/waitlist", {
         method: "POST",
         body: JSON.stringify(userData),
@@ -43,9 +47,17 @@ const Hero = () => {
 
       const data = await res.json();
 
-      console.log(data);
+      if (data) {
+        setUserData({
+          username: "",
+          email: "",
+        });
+        return toast.success("Thanks for joining the waitlist");
+      }
     } catch (error: any) {
       console.log("something went wrong", error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -83,26 +95,29 @@ const Hero = () => {
         >
           <div className="flex flex-col justify-evenly items-center w-full h-3/4">
             <Input
-              className="px-6 py-3 w-full rounded"
+              className="px-6 py-3 w-full rounded disabled:cursor-not-allowed"
               placeholder="Your name e.g Liz Pike"
               type="text"
               name="username"
               onChange={handleChange}
               value={username}
+              aria-disabled={isLoading}
             />
             {/* {errors.username && <p className="text-rose-500">error</p>} */}
             <Input
-              className="px-6 py-3 w-full rounded"
+              className="px-6 py-3 w-full rounded disabled:cursor-not-allowed"
               placeholder="Your email e.g lizpike@theloop.com"
               type="email"
               name="email"
               onChange={handleChange}
+              aria-disabled={isLoading}
               value={email}
             />
             {/* {errors.username && <p className="text-rose-500">error</p>} */}
             <button
               type="submit"
-              className="bg-secondary text-primary font-semibold hover:bg-primary transition-all duration-300 hover:text-secondary px-6 py-3 w-4/5 rounded"
+              disabled={isLoading}
+              className="bg-secondary disabled:cursor-not-allowed text-primary font-semibold hover:bg-primary transition-all duration-300 hover:text-secondary px-6 py-3 w-4/5 rounded"
             >
               Join Waitlist
             </button>
