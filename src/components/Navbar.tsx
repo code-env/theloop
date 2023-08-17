@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Logo from "../components/logo";
 import Hamburger from "./ui/hamburger";
+import clsx from "clsx";
 
 const Navbar = () => {
   const routes = useHeaderRoutes();
@@ -27,11 +28,16 @@ const Navbar = () => {
             </li>
           ))}
 
-          <li className="cursor-pointer border border-secondary py-2 px-8 rounded hover:bg-secondary hover:text-primary font-semibold duration-300 transition-all max-sm:py-1">
+          <li className=" max-sm:hidden cursor-pointer border border-secondary py-2 px-8 rounded hover:bg-secondary hover:text-primary font-semibold duration-300 transition-all max-sm:py-1">
             Get started
           </li>
 
-          <div className=""></div>
+          <div
+            className={clsx(
+              "fixed top-0 -right-1/2 w-1/2 h-screen bg-primary md:hidden transition-all duration-300",
+              isActive && "-right-0"
+            )}
+          ></div>
           <Hamburger isActive={isActive} onClick={handleStateChange} />
         </ul>
       </nav>

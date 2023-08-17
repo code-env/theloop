@@ -12,7 +12,10 @@ const Hamburger: FC<hamburgerProps> = ({ isActive, onClick }) => {
   return (
     <div
       onClick={onClick}
-      className="md:hidden h-10 w-10 rounded flex flex-col justify-between items-end cursor-pointer"
+      className={clsx(
+        "md:hidden relative h-10 w-10 rounded flex flex-col justify-between items-end cursor-pointer z-50 rotate-0 duration-300 transition-all",
+        isActive && "rotate-180 h-5"
+      )}
     >
       <div
         className={clsx(
@@ -22,12 +25,14 @@ const Hamburger: FC<hamburgerProps> = ({ isActive, onClick }) => {
       ></div>
       <div
         className={clsx(
-          "h-1 transition-all duration-300 w-[80%] bg-white rounded"
+          "h-1 transition-all duration-300 w-[80%] bg-white rounded",
+          isActive && "w-10 opacity-0"
         )}
       ></div>
       <div
         className={clsx(
-          "h-1 transition-all duration-300 w-10 bg-white rounded"
+          "h-1 transition-all duration-300 w-10 bg-white rounded",
+          isActive && ""
         )}
       ></div>
     </div>
