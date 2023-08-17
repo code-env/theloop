@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       status: 200,
     });
   } catch (error: any) {
-    console.log("ERROR WHILE GET ALL POST", error.message);
+    console.log("ERROR WHILE CREATING NEW POST", error.message);
     return new NextResponse("internal server error!!", {
       status: 500,
     });

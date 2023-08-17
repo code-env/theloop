@@ -23,7 +23,14 @@ const Hero = () => {
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = async (data: tFormSchema) => {};
+  const onSubmit = async (data: tFormSchema) => {
+    console.log(data);
+    const res = await fetch("/api/waitlist", {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+    console.log(res.json());
+  };
 
   return (
     <div className="hero flex items-center max-w-7xl mx-auto max-sm:flex-col-reverse max-sm:gap-10 max-sm:py-10 max-sm:h-fit">
@@ -64,13 +71,18 @@ const Hero = () => {
               type="text"
               {...register("username")}
             />
+            {errors.username && <p>error</p>}
             <Input
               className="px-6 py-3 w-full rounded"
               placeholder="Your email e.g lizpike@theloop.com"
               type="email"
               {...register("email")}
             />
-            <button className="bg-secondary text-primary font-semibold hover:bg-primary transition-all duration-300 hover:text-secondary px-6 py-3 w-4/5 rounded">
+            {errors.username && <p>error</p>}
+            <button
+              type="submit"
+              className="bg-secondary text-primary font-semibold hover:bg-primary transition-all duration-300 hover:text-secondary px-6 py-3 w-4/5 rounded"
+            >
               Join Waitlist
             </button>
           </div>
