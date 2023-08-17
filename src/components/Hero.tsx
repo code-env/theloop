@@ -1,39 +1,56 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import "@/styles/hero.scss";
 import Image from "next/image";
 import Modal from "./ui/modal";
 import Form from "./ui/form";
 import Input from "./ui/input";
-// import Logo from "../components/logo";
-import { useForm } from "react-hook-form";
-import { formSchema, tFormSchema } from "@/lib/types";
-import { zodResolver } from "@hookform/resolvers/zod";
+// import { useForm, SubmitHandler } from "react-hook-form";
+// import { formSchema, tFormSchema } from "@/lib/types";
+// import { zodResolver } from "@hookform/resolvers/zod";
+
+interface User {
+  username: string;
+  email: string;
+}
 
 const Hero = () => {
   const [isActive, setIsActive] = useState(false);
-
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<tFormSchema>({
-    resolver: zodResolver(formSchema),
+  const [userData, setUserData] = useState<User>({
+    username: "",
+    email: "",
   });
 
-  const onSubmit = async (data: tFormSchema) => {
-    console.log(data);
-    const res = await fetch("/api/waitlist", {
-      method: "POST",
-      body: JSON.stringify(data),
-    });
-    console.log(res.json());
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    setUserData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const { username, email } = userData;
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        body: JSON.stringify(userData),
+      });
+
+      const data = await res.json();
+
+      console.log(data);
+    } catch (error: any) {
+      console.log("something went wrong", error.message);
+    }
   };
 
   return (
-    <div className="hero flex items-center max-w-7xl mx-auto max-sm:flex-col-reverse max-sm:gap-10 max-sm:py-10 max-sm:h-fit">
+    <div className="hero flex items-center max-w-7xl mx-auto max-sm:flex-col-reverse max-sm:gap-5 max-sm:py-8 max-sm:h-fit">
       <section className="flex flex-col gap-4 mb-10">
         <h1 className="text-2xl md:text-6xl font-extrabold xl:text-7xl 2xl:text-8xl max-sm:text-3xl">
           LEARN <br className="max-sm:hidden" /> SHARE <br />{" "}
@@ -56,12 +73,12 @@ const Hero = () => {
           src="/dashboard.svg"
           height={500}
           width={700}
-          className="rounded-3xl md:h-[450px]"
+          className="rounded-3xl md:h-[450px] max-sm:h-96"
         />
       </section>
       <Modal isActive={isActive} setActive={setIsActive}>
         <Form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit}
           className="flex justify-evenly items-center flex-col z-[1001] "
         >
           <div className="flex flex-col justify-evenly items-center w-full h-3/4">
@@ -69,16 +86,20 @@ const Hero = () => {
               className="px-6 py-3 w-full rounded"
               placeholder="Your name e.g Liz Pike"
               type="text"
-              {...register("username")}
+              name="username"
+              onChange={handleChange}
+              value={username}
             />
-            {errors.username && <p>error</p>}
+            {/* {errors.username && <p className="text-rose-500">error</p>} */}
             <Input
               className="px-6 py-3 w-full rounded"
               placeholder="Your email e.g lizpike@theloop.com"
               type="email"
-              {...register("email")}
+              name="email"
+              onChange={handleChange}
+              value={email}
             />
-            {errors.username && <p>error</p>}
+            {/* {errors.username && <p className="text-rose-500">error</p>} */}
             <button
               type="submit"
               className="bg-secondary text-primary font-semibold hover:bg-primary transition-all duration-300 hover:text-secondary px-6 py-3 w-4/5 rounded"

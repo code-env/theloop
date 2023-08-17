@@ -20,8 +20,8 @@ export async function POST(request: Request) {
       },
     });
 
-    return new NextResponse("success", {
-      status: 200,
+    return NextResponse.json({
+      msg: "everything okay",
     });
   } catch (error: any) {
     console.log("ERROR WHILE CREATING NEW POST", error.message);
