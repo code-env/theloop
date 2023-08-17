@@ -25,9 +25,9 @@ const Hero = () => {
   const onSubmit = async (data: tFormSchema) => {};
 
   return (
-    <div className="hero flex items-center">
+    <div className="hero flex items-center max-w-7xl mx-auto">
       <section className="flex flex-col gap-4 mb-10">
-        <h1 className="text-2xl md:text-6xl font-extrabold xl:text-7xl ">
+        <h1 className="text-2xl md:text-6xl font-extrabold xl:text-7xl 2xl:text-8xl">
           LEARN <br /> SHARE <br /> <span className="text-aqua">CONNECT</span>
         </h1>
         <p>
