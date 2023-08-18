@@ -39,7 +39,7 @@ export async function GET() {
       },
     });
 
-    return NextResponse.json(waitList);
+    return NextResponse.json(waitList, { status: 200 });
   } catch (error: any) {
     console.log("ERROR WHILE GET ALL POST", error.message);
     return new NextResponse("internal server error!!", {
