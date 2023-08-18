@@ -34,7 +34,7 @@ const AdminPage = async () => {
       <h1 className="atitle"> {data.length} Registrations </h1>
       <div className="data">
       {data.map((reg: Item)=> (
-        <Person {...reg} />
+        <Person key={reg.email} {...reg} />
       ))}
     </div>
     </div>
