@@ -124,8 +124,8 @@ const Hero = () => {
             <Input
               className="px-6 py-3 w-full rounded disabled:cursor-not-allowed"
               placeholder="Your phone e.g 657453278"
-              type="email"
-              name="email"
+              type="tel"
+              name="phone"
               onChange={handleChange}
               aria-disabled={isLoading}
               value={phone}
