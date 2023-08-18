@@ -33,3 +33,28 @@ html {
     @apply h-1 w-10 bg-black;
   }
 }
+
+.person {
+  background-color: teal;
+  margin: 1em;
+  padding: 1em;
+  border-radius: 8px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.person h2 {
+  font-weight: 600;
+}
+
+.atitle {
+ font-size: 3em; 
+  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+}
+
+.data {
+  margin-top: 5em;
+}
