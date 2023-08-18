@@ -5,6 +5,7 @@ interface Item {
   id: string,
   username: string,
   email: string,
+  phone: string,
   createdAt: string,
   updatedAt: string  
 }
@@ -16,10 +17,11 @@ async function getWaitlist() {
   return registrations;
 }
 
-const Person: React.FC<Partial<Item>> = ({ username, email, createdAt }) => {
+const Person: React.FC<Partial<Item>> = ({ username, email, createdAt, phone }) => {
   return (
     <div className="person flex flex-row justify-evenly">
       <h2><a href={`mailto:${email}`}> {username} </a> </h2>
+      <h2><a href={`tel:${phone}`}> {phone} </a> </h2>
       {new Date(createdAt as any).toLocaleString()}
     </div>
   )
