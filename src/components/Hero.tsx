@@ -12,6 +12,7 @@ import { isModuleNamespaceObject } from "util/types";
 interface User {
   username: string;
   email: string;
+  phone: string
 }
 
 const Hero = () => {
@@ -20,6 +21,7 @@ const Hero = () => {
   const [userData, setUserData] = useState<User>({
     username: "",
     email: "",
+    phone: ""
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +33,7 @@ const Hero = () => {
     }));
   };
 
-  const { username, email } = userData;
+  const { username, email, phone } = userData;
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -48,6 +50,7 @@ const Hero = () => {
         setUserData({
           username: "",
           email: "",
+          phone: ""
         });
         setIsActive(false);
         return toast.success("Thanks for joining the waitlist");
@@ -115,6 +118,16 @@ const Hero = () => {
               value={email}
             />
             {/* {errors.username && <p className="text-rose-500">error</p>} */}
+
+            <Input
+              className="px-6 py-3 w-full rounded disabled:cursor-not-allowed"
+              placeholder="Your phone e.g 657453278"
+              type="tel"
+              name="phone"
+              onChange={handleChange}
+              aria-disabled={isLoading}
+              value={phone}
+              />            
             <button
               type="submit"
               disabled={isLoading}

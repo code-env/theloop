@@ -5,9 +5,9 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    const { username, email } = body;
+    const { username, email, phone } = body;
 
-    if (!username || !email) {
+    if (!username || !email || !phone) {
       return new NextResponse("This field is required", {
         status: 500,
       });
@@ -17,6 +17,7 @@ export async function POST(request: Request) {
       data: {
         username,
         email,
+        phone
       },
     });
 
@@ -39,7 +40,7 @@ export async function GET() {
       },
     });
 
-    return NextResponse.json(waitList);
+    return NextResponse.json(waitList, { status: 200 });
   } catch (error: any) {
     console.log("ERROR WHILE GET ALL POST", error.message);
     return new NextResponse("internal server error!!", {
