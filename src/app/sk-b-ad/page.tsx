@@ -1,44 +1,59 @@
+"use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { WaitList } from "@prisma/client";
+import { toast } from "sonner";
 
-interface Item {
-  id: string,
-  username: string,
-  email: string,
-  phone: string,
-  createdAt: string,
-  updatedAt: string  
-}
-
-async function getWaitlist() {
-  const responses = await fetch("https://theloop.space/api/waitlist");
-  const registrations = await responses.json();
-  console.log(registrations);
-  return registrations;
-}
-
-const Person: React.FC<Partial<Item>> = ({ username, email, createdAt, phone }) => {
+const Person: React.FC<Partial<WaitList>> = ({
+  username,
+  email,
+  createdAt,
+  phone,
+}) => {
   return (
     <div className="person flex flex-row justify-evenly">
-      <h2><a href={`mailto:${email}`}> {username} </a> </h2>
-      <h2><a href={`tel:${phone}`}> {phone} </a> </h2>
+      <h2>
+        <a href={`mailto:${email}`}> {username} </a>{" "}
+      </h2>
+      <h2>
+        <a href={`tel:${phone}`}> {phone} </a>{" "}
+      </h2>
       {new Date(createdAt as any).toLocaleString()}
     </div>
-  )
-}
+  );
+};
 
-const AdminPage = async () => {
-  const data = await getWaitlist();
+const AdminPage = () => {
+  const [data, setData] = useState<WaitList[]>([]);
+
+  useEffect(() => {
+    const getWaitlist = async () => {
+      try {
+        const responses = await fetch("/api/waitlist");
+        const registrations = await responses.json();
+        console.log(registrations);
+
+        setData(registrations);
+      } catch (error) {
+        toast.error("something happened fetching registration");
+      }
+    };
+
+    getWaitlist();
+  }, []);
+
+  console.log(data);
+
   return (
     <div>
       <h1 className="atitle"> {data.length} Registrations </h1>
       <div className="data">
-      {data.map((reg: Item)=> (
-        <Person key={reg.email} {...reg} />
-      ))}
+        {data.map((reg: WaitList, index) => (
+          <Person key={reg.email} {...reg} />
+        ))}
+      </div>
     </div>
-    </div>
-  )
-}
+  );
+};
 
 export default AdminPage;
