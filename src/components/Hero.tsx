@@ -8,9 +8,6 @@ import Form from "./ui/form";
 import Input from "./ui/input";
 import { toast } from "sonner";
 import { isModuleNamespaceObject } from "util/types";
-// import { useForm, SubmitHandler } from "react-hook-form";
-// import { formSchema, tFormSchema } from "@/lib/types";
-// import { zodResolver } from "@hookform/resolvers/zod";
 
 interface User {
   username: string;
@@ -91,6 +88,7 @@ const Hero = () => {
           src="/dashboard.svg"
           height={500}
           width={700}
+          sizes="100vw"
           className="rounded-3xl md:h-[450px] max-sm:h-60 relative"
         />
       </section>
