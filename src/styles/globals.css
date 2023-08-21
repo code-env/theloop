@@ -17,6 +17,10 @@
   @apply lg:px-32 px-8;
 }
 
+.sidebar {
+  height: calc(100vh - 80px);
+}
+
 html {
   scroll-behavior: smooth !important;
   scroll-padding: 5rem;
@@ -48,7 +52,7 @@ html {
 }
 
 .atitle {
- font-size: 3em; 
+  font-size: 3em;
   text-align: center;
   position: fixed;
   top: 0;
