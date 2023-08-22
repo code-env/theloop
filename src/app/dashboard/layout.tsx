@@ -12,7 +12,7 @@ const DashboardLayout = ({ children }: dashboard) => {
       <Header />
       <section className="max-w-7xl mx-auto flex">
         <Sidebar />
-        <section className="">{children}</section>
+        <section className="p-4  w-full">{children}</section>
       </section>
     </main>
   );

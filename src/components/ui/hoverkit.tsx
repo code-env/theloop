@@ -13,12 +13,24 @@ const HoverKit: FC<hoverkitProps> = ({
   ...others
 }) => {
   return (
-    <span
-      className={clsx("absolute w-fit bg-gray-300 text-gray-800", className)}
+    <div
+      className={clsx(
+        "absolute  text-gray-800 w-full group-hover:opacity-100 duration-300 opacity-0  transition-all",
+        className,
+        direction === "top" && "",
+        direction === "right" && "-right-[125%] top-0"
+      )}
       {...others}
     >
-      {label}
-    </span>
+      <p
+        className={clsx(
+          "bg-slate-300 w-fit py-1 z-40 px-2 text-xs rounded after:h-full after:w-5 after:bg-slate-300 after:absolute after:-left-[10px] after:-z-10 after:duration-300  after:rotate-45 after:top-0",
+          direction === "right" && ""
+        )}
+      >
+        {label}
+      </p>
+    </div>
   );
 };
 
