@@ -8,13 +8,15 @@ interface dashboard {
 
 const DashboardLayout = ({ children }: dashboard) => {
   return (
-    <main className="bg-white text-black font-bold">
-      <Header />
-      <section className="max-w-7xl mx-auto flex">
-        <Sidebar />
-        <section className="">{children}</section>
-      </section>
-    </main>
+    <html>
+      <body className="">
+        <Header />
+        <section className="max-w-7xl mx-auto flex">
+          <Sidebar />
+          <section className="p-4  w-full">{children}</section>
+        </section>
+      </body>
+    </html>
   );
 };
 
