@@ -9,7 +9,7 @@ interface dashboard {
 const DashboardLayout = ({ children }: dashboard) => {
   return (
     <html>
-      <body className="bg-white text-black font-bold">
+      <body className="">
         <Header />
         <section className="max-w-7xl mx-auto flex">
           <Sidebar />
