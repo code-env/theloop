@@ -1,9 +1,9 @@
 import React from "react";
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
-// import { dark } from "@clerk/themes";
+import { Inter } from "next/font/google";
 
-import "../globals.css";
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Auth",
@@ -24,7 +24,11 @@ export default function AuthLayout({
       }
     >
       <html lang="en">
-        <body>{children}</body>
+        <body
+          className={`${inter.className} h-screen w-full flex items-center justify-center bg-red-500`}
+        >
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );
