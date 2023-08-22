@@ -7,8 +7,6 @@ interface hamburgerProps {
 }
 
 const Hamburger: FC<hamburgerProps> = ({ isActive, onClick }) => {
-  console.log(isActive);
-
   return (
     <div
       onClick={onClick}

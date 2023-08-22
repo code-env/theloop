@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 
 import { Metadata } from "next";
 import { Toaster } from "@/providers/Providers";
+import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: {
@@ -50,9 +51,11 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
-      <Toaster />
-      <body className="font-inter">{children}</body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <Toaster />
+        <body className="font-inter">{children}</body>
+      </html>
+    </ClerkProvider>
   );
 }

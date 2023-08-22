@@ -16,18 +16,12 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider
-      appearance={
-        {
-          // baseTheme: dark,
-        }
-      }
-    >
+    <ClerkProvider>
       <html lang="en">
-        <body
-          className={`${inter.className} h-screen w-full flex items-center justify-center bg-red-500`}
-        >
-          {children}
+        <body className={inter.className}>
+          <main className=" h-screen flex items-center justify-center w-screen bg-primary bg-red-600">
+            {children}
+          </main>
         </body>
       </html>
     </ClerkProvider>
