@@ -35,10 +35,11 @@ const Sidebar = () => {
           href="/dashboard/account"
           className={clsx(
             "w-10/12 hover:bg-slate-300 duration-300 h-10 flex items-center justify-center rounded relative group",
-            pathname === "/dashboard/account" && "bg-slate-300"
+            pathname === "/dashboard/account" && "bg-slate-300 "
           )}
         >
           <User2 className="cursor-pointer" size={30} />
+          <HoverKit label="Profile" direction="right" />
         </Link>
       </section>
     </aside>
