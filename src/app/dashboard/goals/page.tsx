@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 const Goals = () => {
-  return <div>Goals</div>;
+  return <main>Goals</main>;
 };
 
 export default Goals;

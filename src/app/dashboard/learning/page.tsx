@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 const Learning = () => {
-  return <div>Learning</div>;
+  return <main>Learning</main>;
 };
 
 export default Learning;

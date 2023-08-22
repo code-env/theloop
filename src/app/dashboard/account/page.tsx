@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 const Account = () => {
-  return <div>Account</div>;
+  return <main>Account</main>;
 };
 
 export default Account;

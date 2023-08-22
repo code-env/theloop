@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import Header from "./components/header";
 import Sidebar from "./components/sidebar";
+import { ClerkProvider } from "@clerk/nextjs";
 
 interface dashboard {
   children: ReactNode;
@@ -8,13 +9,17 @@ interface dashboard {
 
 const DashboardLayout = ({ children }: dashboard) => {
   return (
-    <main className="bg-white text-black font-bold">
-      <Header />
-      <section className="max-w-7xl mx-auto flex">
-        <Sidebar />
-        <section className="p-4  w-full">{children}</section>
-      </section>
-    </main>
+    <ClerkProvider>
+      <html>
+        <body className="bg-white text-black font-bold">
+          <Header />
+          <section className="max-w-7xl mx-auto flex">
+            <Sidebar />
+            <section className="p-4  w-full">{children}</section>
+          </section>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 };
 

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 const Inbox = () => {
-  return <div>Inbox</div>;
+  return <main>Inbox</main>;
 };
 
 export default Inbox;

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 const Community = () => {
-  return <div>Community</div>;
+  return <main>Community</main>;
 };
 
 export default Community;
