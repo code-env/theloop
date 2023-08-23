@@ -1,5 +1,6 @@
-import { Goal } from "@prisma/client";
+// import { Goal } from "@prisma/client";
 
+import prismadb from "@/lib/db";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
@@ -14,8 +15,39 @@ export async function POST(req: Request) {
         status: 401,
       });
 
-    const { title, description, endingDate } = body;
+    const { title, description, endingDate, goalType, community } = body;
 
-    const {} = body;
-  } catch (error) {}
+    if (!title || !description || !endingDate || !goalType) {
+      return new NextResponse("This fields are required", {
+        status: 500,
+      });
+    }
+
+    const newGoal = {
+      title,
+      description,
+      endingDate,
+      goalType,
+      userId,
+    };
+
+    if (goalType === "Community") {
+      await prismadb.goal.create({
+        data: { ...newGoal, community },
+      });
+    } else {
+      await prismadb.goal.create({
+        data: { ...newGoal },
+      });
+    }
+
+    return NextResponse.json({
+      msg: "Created succesfully",
+    });
+  } catch (error: any) {
+    console.log("ERROR WHILE CREATING POST", error.message);
+    return new NextResponse("Internal server error", {
+      status: 500,
+    });
+  }
 }

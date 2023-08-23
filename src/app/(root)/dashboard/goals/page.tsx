@@ -1,16 +1,17 @@
-// import { headContent } from "@/constants/metadata";
-
-// headContent("Goals", "Goals setting, Daily, Weekly, Monthly");
-
 import { Metadata } from "next";
+import CreateGoal from "../components/form/createform";
 
 export const metadata: Metadata = {
   title: "Goals",
   description: "Goals setting, Daily, Weekly, Monthly",
 };
 
-const Goals = () => {
-  return <main>Goals</main>;
+const Goals = async () => {
+  return (
+    <main>
+      <CreateGoal />
+    </main>
+  );
 };
 
 export default Goals;

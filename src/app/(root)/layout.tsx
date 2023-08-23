@@ -9,10 +9,12 @@ export const metadata: Metadata = {
     default: "Theloop",
     template: "%s | Theloop",
   },
-  description: "Scalling your entrepreneurial skills",
+  description:
+    "The Loop is a platform that connects startups with the resources they need to grow. Startups can access knowledge, community, and mentorship throughthe platform",
   openGraph: {
     title: "Theloop",
-    description: "Scalling your entrepreneurial skills",
+    description:
+      "The Loop is a platform that connects startups with the resources they need to grow. Startups can access knowledge, community, and mentorship throughthe platform",
     url: "https://theloop.space",
     siteName: "theloop.space",
     images: [
