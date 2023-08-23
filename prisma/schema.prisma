@@ -25,7 +25,7 @@ model Goal {
   userId      String
   title       String
   description String
-  edingTime   DateTime @default(now())
+  endingDate  DateTime @default(now())
   goalType    String
   community   String?
   createdAt   DateTime @default(now())
