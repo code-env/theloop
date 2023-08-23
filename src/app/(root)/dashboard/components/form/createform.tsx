@@ -92,7 +92,7 @@ const CreateGoal = () => {
         </DropdownMenu.Root>
         <Input
           name="endingDate"
-          value={endingDate}
+          value={endingDate ? endingDate.toDateString() : ""}
           type="date"
           placeholder="Date"
           onChange={handleChange}

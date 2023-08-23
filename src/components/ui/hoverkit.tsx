@@ -19,7 +19,7 @@ const HoverKit: FC<hoverkitProps> = ({
         className,
         direction === "top" && "",
         direction === "right" &&
-          "-right-[150%] top-1/2 transform -translate-y-1/2"
+          "-right-[125%] top-1/2 transform -translate-y-1/2"
       )}
       {...others}
     >

@@ -1,6 +1,6 @@
 "use client";
 
-import Avatar from "@/components/Avatar";
+// import Avatar from "@/components/Avatar";
 import HoverKit from "@/components/ui/hoverkit";
 import { useSidebarRoutes } from "@/constants";
 import clsx from "clsx";
@@ -43,7 +43,7 @@ const Sidebar = () => {
             pathname === "/dashboard/account" && "bg-slate-300 "
           )}
         >
-          {/* <Avatar /> */}
+          <User2 />
           <HoverKit label="Profile" direction="right" />
         </Link>
       </section>
