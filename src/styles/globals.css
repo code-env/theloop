@@ -62,3 +62,15 @@ html {
 .data {
   margin-top: 5em;
 }
+
+.text-head {
+  @apply text-2xl font-semibold;
+}
+
+.text-head-sm {
+  @apply text-xl font-semibold;
+}
+
+.text-sm {
+  @apply font-normal text-base;
+}

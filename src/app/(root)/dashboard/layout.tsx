@@ -3,6 +3,7 @@ import Header from "./components/header";
 import { Theme } from "@radix-ui/themes";
 import Sidebar from "./components/sidebar";
 import "@radix-ui/themes/styles.css";
+import Infos from "./components/infos";
 
 interface dashboard {
   children: ReactNode;
@@ -16,7 +17,10 @@ const DashboardLayout = ({ children }: dashboard) => {
           <Header />
           <section className="max-w-7xl mx-auto flex">
             <Sidebar />
-            <section className="p-4  w-full">{children}</section>
+            <section className="py-4 w-full flex gap-4">
+              <section className="flex-1">{children}</section>
+              <Infos />
+            </section>
           </section>
         </Theme>
       </body>
