@@ -1,11 +1,13 @@
 "use client";
 
+// import Avatar from "@/components/Avatar";
 import HoverKit from "@/components/ui/hoverkit";
 import { useSidebarRoutes } from "@/constants";
 import clsx from "clsx";
 import { User2 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+// import { useState } from "react";
 
 const Sidebar = () => {
   const routes = useSidebarRoutes();
@@ -20,11 +22,14 @@ const Sidebar = () => {
             key={route.path}
             className={clsx(
               "w-10/12 hover:bg-slate-300 duration-300 h-10 flex items-center justify-center rounded relative group",
-              pathname === route.path && "bg-slate-300"
+              pathname === route.path && "bg-primary"
             )}
           >
             <li className="list-none">
-              <route.icon size={30} />
+              <route.icon
+                size={30}
+                color={pathname === route.path ? "white" : "black"}
+              />
               <HoverKit label={route.name} direction="right" />
             </li>
           </Link>
@@ -38,7 +43,7 @@ const Sidebar = () => {
             pathname === "/dashboard/account" && "bg-slate-300 "
           )}
         >
-          <User2 className="cursor-pointer" size={30} />
+          <User2 />
           <HoverKit label="Profile" direction="right" />
         </Link>
       </section>
