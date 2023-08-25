@@ -27,6 +27,9 @@ module.exports = {
         aqua: "var(--color-aqua)",
         neutral: "var(--color-neutral)",
       },
+      boxShadow: {
+        primary: "var(--shadow)",
+      },
     },
   },
   plugins: [],
