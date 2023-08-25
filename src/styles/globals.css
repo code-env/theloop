@@ -38,6 +38,10 @@ html {
   background: linear-gradient(71deg, #010823 0%, #041a6f 100%);
 }
 
+.contentspace {
+  @apply flex flex-col gap-2;
+}
+
 @layer {
   .hamburger {
     @apply h-1 w-10 bg-black;

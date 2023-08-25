@@ -56,7 +56,7 @@ const CreateGoal = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <p>Create a new Goal</p>
-      <div className="gap-2 flex flex-col">
+      <div className="contentspace">
         <Input
           name="title"
           value={title!}

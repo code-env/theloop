@@ -53,7 +53,7 @@ function DailyQuote() {
     getQuote();
   }, []);
   return (
-    <div className="flex flex-col gap-2">
+    <div className="contentspace">
       <Dtext label="Daily Quote" />
       <div className="border-t border-l border-primary py-2 px-12">
         <blockquote className="flex flex-col">
