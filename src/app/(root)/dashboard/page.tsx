@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 const Home = () => {
   return (
-    <main className="bg-black text-white px-4">
+    <main className="px-4">
       <h1>Dashboard</h1>
     </main>
   );
