@@ -5,9 +5,8 @@
 @tailwind utilities;
 
 :root {
-  --font-inter: "Inter", sans-serif;
-  --font-sans: "Open Sans", sans-serif;
   --color-orange: #055049;
+  --font-proxima: "Proxima Nova", sans-serif;
   --color-blue: #faf35e;
   --color-neutral: #d9d9d9;
   --color-black: #404040;
@@ -30,7 +29,7 @@
 html {
   scroll-behavior: smooth !important;
   scroll-padding: 5rem;
-  font-family: "Proxima Nova", sans-serif;
+  font-family: "Proxima Nova", sans-serif !important;
   overflow-x: hidden !important;
 }
 

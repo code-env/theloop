@@ -31,6 +31,9 @@ module.exports = {
       boxShadow: {
         primary: "var(--shadow)",
       },
+      fontFamily: {
+        proxima: "var(--font-proxima)",
+      },
     },
   },
   plugins: [],

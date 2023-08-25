@@ -3,7 +3,7 @@ import { Sun, Bell, User2, Search } from "lucide-react";
 
 const Header = () => {
   return (
-    <header className="flex w-full h-20 border-b">
+    <header className="flex w-full h-20 border-b font-proxima">
       <div className="items-center px-20 justify-between flex max-w-7xl mx-auto w-full 2xl:px-0">
         <section>
           <Image
