@@ -12,10 +12,10 @@ interface dashboard {
 const DashboardLayout = ({ children }: dashboard) => {
   return (
     <html lang="en">
-      <body className="text-p">
+      <body>
         <Theme>
           <Header />
-          <section className="max-w-7xl mx-auto flex">
+          <section className="max-w-7xl mx-auto flex font-proxima">
             <Sidebar />
             <section className="py-4 w-full flex gap-4">
               <section className="flex-1">{children}</section>

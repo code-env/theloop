@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const Home = () => {
   return (
-    <main className="px-4 flex flex-col gap-8">
+    <main className="px-4 flex flex-col gap-8 font-proxima">
       <DHead username="Norbert A," />
       <section className="w-full flex flex-col gap-9">
         <Dprogress />
