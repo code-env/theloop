@@ -8,7 +8,7 @@ const Infos = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
 
   return (
-    <section className="flex-[0.3] bg-white p-4  shadow-md flex flex-col gap-3 h-fit">
+    <section className="flex-[0.3] bg-white rounded-10 p-4  shadow-primary  flex flex-col gap-3 h-fit">
       <h1 className="text-head border-b">Event</h1>
       <div className="flex flex-col gap-2">
         <Event
