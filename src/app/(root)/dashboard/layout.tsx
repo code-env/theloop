@@ -11,8 +11,8 @@ interface dashboard {
 
 const DashboardLayout = ({ children }: dashboard) => {
   return (
-    <html>
-      <body>
+    <html lang="en">
+      <body className="text-p">
         <Theme>
           <Header />
           <section className="max-w-7xl mx-auto flex">

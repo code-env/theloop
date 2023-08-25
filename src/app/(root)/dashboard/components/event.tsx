@@ -12,7 +12,7 @@ interface EventProps {
 
 const Event: FC<EventProps> = ({ title, description, date, by }) => {
   return (
-    <section className="flex flex-col gap-2 border-b pb-2">
+    <section className="contentspace border-b pb-2">
       <h1 className="text-head-sm">{title}</h1>
       <p className="text-sm">{description}</p>
       <p>
