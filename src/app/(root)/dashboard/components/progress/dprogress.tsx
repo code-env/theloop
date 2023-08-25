@@ -126,7 +126,8 @@ function DailyQuote() {
       <Dtext label="Daily Quote" />
       <div className="border-t border-l border-primary py-2 px-12">
         <blockquote className="flex flex-col">
-          {`${quote?.q} -`} <span className="italic text-sm">{quote?.a}</span>
+          <span>{`"${quote?.q}" -`}</span>
+          <span className="italic text-sm">{quote?.a}</span>
         </blockquote>
       </div>
     </div>
