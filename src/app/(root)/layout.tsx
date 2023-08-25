@@ -56,7 +56,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <ClerkProvider>
       <html lang="en">
         <Toaster />
-        <body className="font-inter">{children}</body>
+        <body className="text-p">{children}</body>
       </html>
     </ClerkProvider>
   );
