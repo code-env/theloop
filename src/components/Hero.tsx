@@ -12,7 +12,7 @@ import { isModuleNamespaceObject } from "util/types";
 interface User {
   username: string;
   email: string;
-  phone: string
+  phone: string;
 }
 
 const Hero = () => {
@@ -21,7 +21,7 @@ const Hero = () => {
   const [userData, setUserData] = useState<User>({
     username: "",
     email: "",
-    phone: ""
+    phone: "",
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -50,7 +50,7 @@ const Hero = () => {
         setUserData({
           username: "",
           email: "",
-          phone: ""
+          phone: "",
         });
         setIsActive(false);
         return toast.success("Thanks for joining the waitlist");
@@ -76,7 +76,7 @@ const Hero = () => {
           platform
         </p>
         <button
-          className="bg-secondary rounded text-primary w-fit px-8 py-2 border border-secondary font-semibold hover:border-secondary hover:text-white hover:bg-transparent duration-300 transition-all max-sm:w-full"
+          className="bg-secondary rounded text-primary w-fit px-8 py-2 border border-secondary font-semibold hover:border-secondary hover:text-white hover:bg-transparent slowmo max-sm:w-full"
           onClick={(e) => setIsActive((prev) => !prev)}
         >
           Join Waitlist
@@ -127,11 +127,11 @@ const Hero = () => {
               onChange={handleChange}
               aria-disabled={isLoading}
               value={phone}
-              />            
+            />
             <button
               type="submit"
               disabled={isLoading}
-              className="bg-secondary disabled:cursor-not-allowed text-primary font-semibold hover:bg-primary transition-all duration-300 hover:text-secondary px-6 py-3 w-4/5 rounded"
+              className="bg-secondary disabled:cursor-not-allowed text-primary font-semibold hover:bg-primary slowmo hover:text-secondary px-6 py-3 w-4/5 rounded"
             >
               Join Waitlist
             </button>

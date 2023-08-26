@@ -35,7 +35,7 @@ export const useSidebarRoutes = () => {
       },
       {
         name: "Goals",
-        path: "/dashboard/goals",
+        path: `/dashboard/goals`,
         icon: Goal,
       },
       {

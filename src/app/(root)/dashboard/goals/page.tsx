@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import CreateGoal from "../components/form/createform";
-import GoalsHeader from "../components/ghead";
+import GoalWrapper from "../components/goals/wrapper";
 
 export const metadata: Metadata = {
   title: "Goals",
@@ -9,8 +8,8 @@ export const metadata: Metadata = {
 
 const Goals = async () => {
   return (
-    <main>
-      <GoalsHeader />
+    <main className="px-4 flex flex-col gap-8">
+      <GoalWrapper />
     </main>
   );
 };

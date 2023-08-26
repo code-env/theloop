@@ -26,6 +26,10 @@
   @apply rounded-[10px];
 }
 
+.slowmo {
+  @apply transition-all duration-300;
+}
+
 html {
   scroll-behavior: smooth !important;
   scroll-padding: 5rem;

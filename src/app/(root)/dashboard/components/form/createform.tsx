@@ -14,7 +14,7 @@ const CreateGoal = () => {
     description: "",
     endingDate: new Date(),
   });
-  const [gtpe, setGtpe] = useState<goalTypeVariant>("Personal");
+  const [gtpe, setGtpe] = useState<goalTypeVariant>("Personal Goals");
 
   const gt = ["Personal", "Community"];
 

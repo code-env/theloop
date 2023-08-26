@@ -19,7 +19,7 @@ const Modal: FC<modal> = ({
     <div
       id="modal"
       className={clsx(
-        "opacity-0 pointer-events-none top-0 left-0 modal z-[1000] backdrop-blur-lg bg-black/5 w-full h-screen fixed duration-300 transition-all flex items-center justify-center",
+        "opacity-0 pointer-events-none top-0 left-0 modal z-[1000] backdrop-blur-lg bg-black/5 w-full h-screen fixed slowmo flex items-center justify-center",
         isActive && "opacity-100 pointer-events-auto",
         className
       )}
