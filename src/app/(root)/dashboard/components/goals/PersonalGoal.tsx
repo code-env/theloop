@@ -45,7 +45,7 @@ const PersonalGoal = () => {
   //   console.log("Next 7 Days (excluding today):", next7Days);
 
   return (
-    <section className="flex items-center gap-5">
+    <section className="flex items-start gap-5">
       {next7Days.map(({ day, formattedDate }, index) => (
         <DayTask day={day} key={index} date={formattedDate} />
       ))}

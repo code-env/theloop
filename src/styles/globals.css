@@ -27,7 +27,7 @@
 }
 
 .slowmo {
-  @apply transition-all duration-300;
+  transition: 0.3s ease-in-out !important;
 }
 
 html {
@@ -37,7 +37,7 @@ html {
   overflow-x: hidden !important;
 }
 
-.bg-gradient {
+. .bg-gradient {
   background: linear-gradient(71deg, #010823 0%, #041a6f 100%);
 }
 
