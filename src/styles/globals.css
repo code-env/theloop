@@ -26,6 +26,10 @@
   @apply rounded-[10px];
 }
 
+.slowmo {
+  transition: 0.3s ease-in-out !important;
+}
+
 html {
   scroll-behavior: smooth !important;
   scroll-padding: 5rem;
@@ -33,7 +37,7 @@ html {
   overflow-x: hidden !important;
 }
 
-.bg-gradient {
+. .bg-gradient {
   background: linear-gradient(71deg, #010823 0%, #041a6f 100%);
 }
 

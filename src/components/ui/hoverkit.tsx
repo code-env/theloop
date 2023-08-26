@@ -15,7 +15,7 @@ const HoverKit: FC<hoverkitProps> = ({
   return (
     <div
       className={clsx(
-        "absolute text-gray-800 w-full group-hover:opacity-100 duration-300 opacity-0  transition-all",
+        "absolute text-gray-800 w-full group-hover:opacity-100 opacity-0  slowmo",
         className,
         direction === "top" && "",
         direction === "right" &&

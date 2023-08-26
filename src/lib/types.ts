@@ -7,4 +7,7 @@ export const formSchema = z.object({
 
 export type tFormSchema = z.infer<typeof formSchema>;
 
-export type goalTypeVariant = "Community" | "Personal";
+export type goalTypeVariant =
+  | "Personal Goals"
+  | "Accelerator Goals"
+  | "Performance";
