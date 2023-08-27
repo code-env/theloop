@@ -21,13 +21,26 @@ model WaitList {
 }
 
 model Goal {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
   userId      String
   title       String
   description String
-  endingDate  DateTime @default(now())
+  endingDate  DateTime   @default(now())
   goalType    String
   community   String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  tasks       GoalTask[]
+  completionMessage String // a message you report once the goal is completed
+}
+
+model GoalTask {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  goalId      String   @db.ObjectId
+  goal        Goal     @relation(fields: [goalId], references: [id])
+  description String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  tickedAt    DateTime // the time at which the task was ticked off
+  completed   Boolean // is the task complete or not 
 }
