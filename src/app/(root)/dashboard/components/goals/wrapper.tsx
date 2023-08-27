@@ -1,12 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import GoalsHeader from "../ghead";
+import GoalsHeader from "./ghead";
 import { goalTypeVariant } from "@/lib/types";
 import PersonalGoal from "./PersonalGoal";
 import Performance from "./Performance";
 import AcceleratorGoal from "./AcceleratorGoal";
-// import { useParams } from "next/navigation";
 
 const GoalWrapper = () => {
   const [activeGoalVarint, setActiveGoalVariant] =

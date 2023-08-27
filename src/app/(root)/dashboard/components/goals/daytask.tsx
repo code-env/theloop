@@ -15,7 +15,6 @@ const DayTask: FC<DailyTask> = ({ day, date }) => {
       className={cn(
         "flex-1 shadow-primary rounded-10 cursor-pointer p-2 bg-white h-fit",
         isClicked && "h-48"
-
       )}
       onClick={() => setIsClicked((prev) => !prev)}
     >

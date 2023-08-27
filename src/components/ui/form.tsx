@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 import React, { FC, HTMLAttributes, ReactNode } from "react";
 
 interface form extends HTMLAttributes<HTMLFormElement> {
@@ -8,7 +8,7 @@ interface form extends HTMLAttributes<HTMLFormElement> {
 const Form: FC<form> = ({ children, className, ...others }) => {
   return (
     <form
-      className={clsx(
+      className={cn(
         "flex flex-col gap-4 bg-white w-[90%] h-[90%] rounded-md lg:w-1/2 lg:h-1/2 p-4",
         className
       )}

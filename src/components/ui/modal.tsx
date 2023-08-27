@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 import React, { FC, HtmlHTMLAttributes, ReactNode } from "react";
 import { XSquare } from "lucide-react";
 
@@ -18,7 +18,7 @@ const Modal: FC<modal> = ({
   return (
     <div
       id="modal"
-      className={clsx(
+      className={cn(
         "opacity-0 pointer-events-none top-0 left-0 modal z-[1000] backdrop-blur-lg bg-black/5 w-full h-screen fixed slowmo flex items-center justify-center",
         isActive && "opacity-100 pointer-events-auto",
         className

@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Logo from "../components/logo";
 import Hamburger from "./ui/hamburger";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const routes = useHeaderRoutes();
@@ -33,7 +33,7 @@ const Navbar = () => {
           </li>
 
           <div
-            className={clsx(
+            className={cn(
               "fixed top-0 -right-1/2 w-1/2 h-screen bg-primary md:hidden slowmo",
               isActive && "-right-0 z-50"
             )}
