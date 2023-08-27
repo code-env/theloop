@@ -11,6 +11,41 @@ datasource db {
   relationMode = "prisma"
 }
 
+model User {
+  id         String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String  @unique
+  username   String  @unique
+  email      String  @unique
+  password   String?
+  isOboarded Boolean @default(false)
+  imageUrl   String
+  phone      Int
+  // communities Communities[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// id String @id @default(auto()) @map("_id") @db.ObjectId
+
+// createdAt DateTime @default(now())
+// updatedAt DateTime @updatedAt
+
+model Communities {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Members {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model WaitList {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   username  String

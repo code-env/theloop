@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { goalTypeVariant } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 
