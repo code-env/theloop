@@ -13,7 +13,7 @@ const Header = () => {
             width={50}
           />
         </section>
-        <section className="flex items-center w-96 border h-10">
+        <section className="flex items-center w-96 border h-10 overflow-hidden rounded">
           <input
             type="text"
             placeholder="Search"

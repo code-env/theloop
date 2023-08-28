@@ -42,6 +42,10 @@ html {
   background: linear-gradient(71deg, #010823 0%, #041a6f 100%);
 }
 
+.light-dark {
+  /* color:  */
+}
+
 .contentspace {
   @apply flex flex-col gap-2;
 }

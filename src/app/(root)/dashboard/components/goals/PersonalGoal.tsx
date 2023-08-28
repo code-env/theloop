@@ -9,7 +9,10 @@ const PersonalGoal = () => {
   const nextdays = next3Days();
 
   const handleUserClick = (index: number) => {
-    setActiveUserIndex(index === activeUserIndex ? null : index);
+    if (index !== activeUserIndex) {
+      setActiveUserIndex(index);
+    }
+    // setActiveUserIndex(index === activeUserIndex ? null : index);
   };
 
   return (
