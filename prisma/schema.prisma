@@ -23,11 +23,6 @@ model User {
   updatedAt DateTime @updatedAt
 }
 
-// id String @id @default(auto()) @map("_id") @db.ObjectId
-
-// createdAt DateTime @default(now())
-// updatedAt DateTime @updatedAt
-
 model Communities {
   id         String @id @default(auto()) @map("_id") @db.ObjectId
   name       String
@@ -57,14 +52,29 @@ model WaitList {
   updatedAt DateTime @updatedAt
 }
 
-model Goal {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+model Goals {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
   userId      String
-  title       String
-  description String
-  endingDate  DateTime @default(now())
-  goalType    String
-  community   String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  dateCreated String @db.ObjectId
+  goal        Goal   @relation(fields: [dateCreated], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([dateCreated])
 }
+
+model Goal {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Goals     Goals[]
+  goalId    String?  @db.ObjectId
+}
+
+// id String @id @default(auto()) @map("_id") @db.ObjectId
+
+// createdAt DateTime @default(now())
+// updatedAt DateTime @updatedAt

@@ -20,7 +20,7 @@ const DayTask: FC<DailyTask> = ({ day, date, onClick, isActive }) => {
   return (
     <section
       className={cn(
-        "flex-1 shadow-primary rounded-10 cursor-pointer p-2 bg-white h-[105px] slowmo overflow-hidden contentspace relative",
+        "flex-1 shadow-primary rounded-10 cursor-pointer p-2 bg-white h-[105px] slowmo overflow-hidden contentspace relative z-10",
         isActive && "h-[235px] cursor-default"
       )}
       onClick={onClick}
