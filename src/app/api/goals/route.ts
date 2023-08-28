@@ -29,6 +29,7 @@ export async function POST(req: Request) {
       endingDate,
       goalType,
       userId,
+      completionMessage: "",
     };
 
     if (goalType === "Community") {
