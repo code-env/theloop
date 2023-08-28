@@ -19,7 +19,7 @@ const Header = () => {
             placeholder="Search"
             className="w-full outline-none px-2"
           />
-          <button className="h-10 w-14 bg-primary flex items-center justify-center text-white">
+          <button className="h-10 w-14 bg-primaryDash flex items-center justify-center text-white">
             <Search />
           </button>
         </section>

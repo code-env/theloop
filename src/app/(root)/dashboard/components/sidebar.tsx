@@ -22,7 +22,7 @@ const Sidebar = () => {
             key={route.path}
             className={cn(
               "w-10/12 hover:bg-slate-300 duration-300 h-10 flex items-center justify-center rounded relative group",
-              pathname === route.path && "bg-primary"
+              pathname === route.path && "bg-primaryDash"
             )}
           >
             <li className="list-none">

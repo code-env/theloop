@@ -131,7 +131,7 @@ const Hero = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="bg-secondary disabled:cursor-not-allowed text-primary font-semibold hover:bg-primary slowmo hover:text-secondary px-6 py-3 w-4/5 rounded"
+              className="bg-secondary disabled:cursor-not-allowed text-primary font-semibold hover:bg-primaryDash slowmo hover:text-secondary px-6 py-3 w-4/5 rounded"
             >
               Join Waitlist
             </button>
