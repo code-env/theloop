@@ -46,6 +46,10 @@ html {
   @apply flex flex-col gap-2;
 }
 
+.v-center {
+  @apply flex items-center;
+}
+
 @layer {
   .hamburger {
     @apply h-1 w-10 bg-black;
