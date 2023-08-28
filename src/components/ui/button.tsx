@@ -17,7 +17,7 @@ const buttonVariants = cva(
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-slate-300",
-        link: "text-primary underline-offset-4 hover:underline",
+        link: "text-primaryDash underline-offset-4 hover:underline",
       },
       size: {
         default: "h-10 px-4 py-2",

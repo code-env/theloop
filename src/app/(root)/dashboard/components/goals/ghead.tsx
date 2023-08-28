@@ -27,7 +27,7 @@ const GoalsHeader: FC<goalHeadProps> = ({
           variant="default"
           className={`flex-1 ${
             type === activeGoalVarint
-              ? "bg-white text-primary font-semibold text-base hover:text-p"
+              ? "bg-white text-primaryDash font-semibold text-base hover:text-p"
               : "bg-transparent text-p"
           }`}
           onClick={() => handleClick(type)}

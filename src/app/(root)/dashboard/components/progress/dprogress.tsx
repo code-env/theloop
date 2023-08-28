@@ -88,7 +88,7 @@ function ProgressElement({
     <section className="flex flex-col gap-2 text-xs font-normal">
       <p className="flex items-center justify-between">
         <span>{title}</span>
-        <Link href={link} className="text-primary hover:underline">
+        <Link href={link} className="text-primaryDash hover:underline">
           {linkPlaceholder}
         </Link>
       </p>

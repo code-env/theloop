@@ -28,7 +28,7 @@ const Navbar = () => {
             </li>
           ))}
 
-          <li className=" max-sm:hidden cursor-pointer border border-secondary py-2 px-8 rounded hover:bg-secondary hover:text-primary font-semibold slowmo max-sm:py-1">
+          <li className=" max-sm:hidden cursor-pointer border border-secondary py-2 px-8 rounded hover:bg-secondary hover:text-primaryDash font-semibold slowmo max-sm:py-1">
             Get started
           </li>
 

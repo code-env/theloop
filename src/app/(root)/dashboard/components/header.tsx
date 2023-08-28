@@ -1,17 +1,12 @@
-import Image from "next/image";
 import { Sun, Bell, User2, Search } from "lucide-react";
+import Logo from "@/components/logo";
 
 const Header = () => {
   return (
     <header className="flex w-full h-20 border-b font-proxima">
       <div className="items-center px-20 justify-between flex max-w-7xl mx-auto w-full 2xl:px-0">
         <section>
-          <Image
-            src="/glogo.png"
-            alt="theloop dashboard"
-            height={20}
-            width={50}
-          />
+          <Logo />
         </section>
         <section className="flex items-center w-96 border h-10 overflow-hidden rounded">
           <input

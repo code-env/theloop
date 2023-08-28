@@ -78,7 +78,7 @@ const DayTask: FC<DailyTask> = ({ day, date, onClick, isActive }) => {
             <Input className="h-[25px] border focus:ring-0" />
           </section>
           <section>
-            <p>Add title</p>
+            <p>Task name</p>
             <Input className="h-[25px] border focus:ring-0" />
           </section>
           <Button

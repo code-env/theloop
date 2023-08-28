@@ -8,7 +8,7 @@ interface dheadProps extends HtmlHTMLAttributes<HTMLHeadingElement> {
 const DHead: FC<dheadProps> = ({ username, className, ...others }) => {
   return (
     <h1 className={cn("font-semibold text-4xl mt-7", className)} {...others}>
-      Welcome <span className="text-primary">{username}</span>
+      Welcome <span className="text-primaryDash">{username}</span>
     </h1>
   );
 };
