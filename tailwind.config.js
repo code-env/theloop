@@ -14,6 +14,7 @@ module.exports = {
         secondary: "var(--color-blue)",
         aqua: "var(--color-aqua)",
         neutral: "var(--color-neutral)",
+        primaryDash: "var(--color-primary)",
       },
       textColor: {
         primary: "var(--color-orange)",
@@ -21,12 +22,14 @@ module.exports = {
         aqua: "var(--color-aqua)",
         neutral: "var(--color-neutral)",
         p: "var(--color-black)",
+        primaryDash: "var(--color-primary)",
       },
       borderColor: {
         primary: "var(--color-orange)",
         secondary: "var(--color-blue)",
         aqua: "var(--color-aqua)",
         neutral: "var(--color-neutral)",
+        primaryDash: "var(--color-primary)",
       },
       boxShadow: {
         primary: "var(--shadow)",

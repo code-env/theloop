@@ -88,7 +88,7 @@ function ProgressElement({
     <section className="flex flex-col gap-2 text-xs font-normal">
       <p className="flex items-center justify-between">
         <span>{title}</span>
-        <Link href={link} className="text-primary hover:underline">
+        <Link href={link} className="text-primaryDash hover:underline">
           {linkPlaceholder}
         </Link>
       </p>
@@ -124,7 +124,7 @@ function DailyQuote() {
   return (
     <div className="contentspace">
       <Dtext label="Daily Quote" />
-      <div className="border-t border-l border-primary py-2 px-12">
+      <div className="border-t border-l border-primaryDash py-2 px-12">
         <blockquote className="flex flex-col">
           <span>{`"${quote?.q}" -`}</span>
           <span className="italic text-sm">{quote?.a}</span>

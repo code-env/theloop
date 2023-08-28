@@ -76,7 +76,7 @@ const Hero = () => {
           platform
         </p>
         <button
-          className="bg-secondary rounded text-primary w-fit px-8 py-2 border border-secondary font-semibold hover:border-secondary hover:text-white hover:bg-transparent slowmo max-sm:w-full"
+          className="bg-secondary rounded text-primaryDash w-fit px-8 py-2 border border-secondary font-semibold hover:border-secondary hover:text-white hover:bg-transparent slowmo max-sm:w-full"
           onClick={(e) => setIsActive((prev) => !prev)}
         >
           Join Waitlist
@@ -131,7 +131,7 @@ const Hero = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="bg-secondary disabled:cursor-not-allowed text-primary font-semibold hover:bg-primary slowmo hover:text-secondary px-6 py-3 w-4/5 rounded"
+              className="bg-secondary disabled:cursor-not-allowed text-primaryDash font-semibold hover:bg-primaryDash slowmo hover:text-secondary px-6 py-3 w-4/5 rounded"
             >
               Join Waitlist
             </button>

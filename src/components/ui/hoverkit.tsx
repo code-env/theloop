@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 import { FC, HTMLAttributes } from "react";
 
 interface hoverkitProps extends HTMLAttributes<HTMLSpanElement> {
@@ -14,7 +14,7 @@ const HoverKit: FC<hoverkitProps> = ({
 }) => {
   return (
     <div
-      className={clsx(
+      className={cn(
         "absolute text-gray-800 w-full group-hover:opacity-100 opacity-0  slowmo",
         className,
         direction === "top" && "",
@@ -24,8 +24,8 @@ const HoverKit: FC<hoverkitProps> = ({
       {...others}
     >
       <p
-        className={clsx(
-          "bg-slate-300 relative w-fit py-1 z-40 px-2 text-xs rounded after:h-full after:w-5 after:bg-slate-300 after:absolute after:-left-[10px] after:-z-10  after:duration-300  after:rotate-45 after:top-0",
+        className={cn(
+          "bg-slate-300 relative w-fit py-1 z-[1000] px-2 text-xs rounded after:h-full after:w-5 after:bg-slate-300 after:absolute after:-left-[10px] after:-z-10  after:duration-300  after:rotate-45 after:top-0",
           direction === "right" && "pl-1"
         )}
       >

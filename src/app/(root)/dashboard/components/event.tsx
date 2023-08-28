@@ -17,9 +17,9 @@ const Event: FC<EventProps> = ({ title, description, date, by }) => {
       <p className="text-sm">{description}</p>
       <p>
         {date} {" | "} Posted by{" "}
-        <span className="text-primary font-medium">{by}</span>
+        <span className="text-primaryDash font-medium">{by}</span>
       </p>
-      <Button className="w-fit gap-3 text-primary px-0" variant="link">
+      <Button className="w-fit gap-3 text-primaryDash px-0" variant="link">
         <Calendar />
         <span className="font-medium">Add to calendar</span>
       </Button>

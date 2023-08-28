@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 import React, { FC, HTMLAttributes } from "react";
 
 interface input extends HTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
@@ -18,7 +18,7 @@ const Input: FC<input> = ({
 }) => {
   return textarea ? (
     <textarea
-      className={clsx(
+      className={cn(
         "border border-gray-500 outline-none px-4 py-1 text-gray-900 resize-none w-full",
         className
       )}
@@ -28,7 +28,7 @@ const Input: FC<input> = ({
     ></textarea>
   ) : (
     <input
-      className={clsx(
+      className={cn(
         "border border-gray-500 outline-none px-4 py-1 text-gray-900 w-full",
         className
       )}

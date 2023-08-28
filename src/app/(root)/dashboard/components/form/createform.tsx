@@ -74,7 +74,7 @@ const CreateGoal = () => {
         />
         <DropdownMenu.Root>
           <DropdownMenu.Trigger>
-            <p className="bg-primary px-8 py-2 text-slate-100 rounded font-medium flex items-center justify-between w-fit">
+            <p className="bg-primaryDash px-8 py-2 text-slate-100 rounded font-medium flex items-center justify-between w-fit">
               {gtpe} <ChevronDown />
             </p>
           </DropdownMenu.Trigger>
@@ -100,7 +100,7 @@ const CreateGoal = () => {
         />
       </div>
 
-      <button className="bg-primary px-8 py-2 text-slate-100 rounded font-medium">
+      <button className="bg-primaryDash px-8 py-2 text-slate-100 rounded font-medium">
         Create Goal
       </button>
     </Form>

@@ -3,7 +3,7 @@
 // import Avatar from "@/components/Avatar";
 import HoverKit from "@/components/ui/hoverkit";
 import { useSidebarRoutes } from "@/constants";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 import { User2 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -15,14 +15,14 @@ const Sidebar = () => {
 
   return (
     <aside className="sidebar border-r flex flex-col justify-between py-20 w-20">
-      <nav className="flex flex-col gap-1 items-center">
+      <nav className="flex flex-col gap-4 items-center">
         {routes.map((route) => (
           <Link
             href={route.path}
             key={route.path}
-            className={clsx(
+            className={cn(
               "w-10/12 hover:bg-slate-300 duration-300 h-10 flex items-center justify-center rounded relative group",
-              pathname === route.path && "bg-primary"
+              pathname === route.path && "bg-primaryDash"
             )}
           >
             <li className="list-none">
@@ -38,7 +38,7 @@ const Sidebar = () => {
       <section className="flex flex-col gap-1 items-center">
         <Link
           href="/dashboard/account"
-          className={clsx(
+          className={cn(
             "w-10/12 hover:bg-slate-300 duration-300 h-10 flex items-center justify-center rounded relative group",
             pathname === "/dashboard/account" && "bg-slate-300 "
           )}
