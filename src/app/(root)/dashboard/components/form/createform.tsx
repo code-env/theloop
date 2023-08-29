@@ -1,12 +1,12 @@
 "use client";
 
-import Form from "@/components/ui/form";
-import Input from "@/components/ui/input";
-import { goalTypeVariant } from "@/lib/types";
 import { Goal } from "@prisma/client";
 import { DropdownMenu } from "@radix-ui/themes";
 import { ChevronDown } from "lucide-react";
 import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import Form from "@/components/ui/form";
+import Input from "@/components/ui/input";
+import { goalTypeVariant } from "@/lib/types";
 
 const CreateGoal = () => {
   const [goal, setGoal] = useState<Partial<Goal>>({

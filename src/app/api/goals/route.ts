@@ -15,32 +15,7 @@ export async function POST(req: Request) {
         status: 401,
       });
 
-    const { title, description, endingDate, goalType, community } = body;
-
-    if (!title || !description || !endingDate || !goalType) {
-      return new NextResponse("This fields are required", {
-        status: 500,
-      });
-    }
-
-    const newGoal = {
-      title,
-      description,
-      endingDate,
-      goalType,
-      userId,
-      completionMessage: "",
-    };
-
-    if (goalType === "Community") {
-      await prismadb.goal.create({
-        data: { ...newGoal, community },
-      });
-    } else {
-      await prismadb.goal.create({
-        data: { ...newGoal },
-      });
-    }
+    const { title, name } = body;
 
     return NextResponse.json({
       msg: "Created succesfully",

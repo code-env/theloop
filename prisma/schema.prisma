@@ -53,14 +53,16 @@ model WaitList {
   updatedAt DateTime @updatedAt
 }
 
+enum GoalType {
+  PERSONAL
+  ACCELERATOR
+}
+
 model Goal {
   id                String     @id @default(auto()) @map("_id") @db.ObjectId
   userId            String
-  title             String
-  description       String
-  endingDate        DateTime   @default(now())
-  goalType          String // Personal | Accelerator
-  community         String?
+  date              String
+  goalType          GoalType   @default(PERSONAL)
   createdAt         DateTime   @default(now())
   updatedAt         DateTime   @updatedAt
   tasks             GoalTask[]
@@ -71,6 +73,7 @@ model GoalTask {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   goalId      String   @db.ObjectId
   goal        Goal     @relation(fields: [goalId], references: [id])
+  title       String
   description String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
