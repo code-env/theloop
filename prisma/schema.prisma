@@ -28,7 +28,8 @@ model Communities {
   name       String
   inviteCode String
   userId     String @db.ObjectId
-  user       User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -52,26 +53,28 @@ model WaitList {
   updatedAt DateTime @updatedAt
 }
 
-model Goals {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
-  userId      String
-  dateCreated String @db.ObjectId
-  goal        Goal   @relation(fields: [dateCreated], references: [id])
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([dateCreated])
+model Goal {
+  id                String     @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String
+  title             String
+  description       String
+  endingDate        DateTime   @default(now())
+  goalType          String // Personal | Accelerator
+  community         String?
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+  tasks             GoalTask[]
+  completionMessage String // a message you report once the goal is completed
 }
 
-model Goal {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  title     String
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  Goals     Goals[]
-  goalId    String?  @db.ObjectId
+model GoalTask {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  goalId      String   @db.ObjectId
+  goal        Goal     @relation(fields: [goalId], references: [id])
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  completed   Boolean // is the task complete or no
 }
 
 // id String @id @default(auto()) @map("_id") @db.ObjectId
