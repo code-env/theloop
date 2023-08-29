@@ -5,6 +5,13 @@ export const formSchema = z.object({
   email: z.string().email(),
 });
 
+export const goalSchema = z.object({
+  title: z.string(),
+  name: z.string(),
+});
+
+export type typeGoalSchema = z.infer<typeof goalSchema>;
+
 export type tFormSchema = z.infer<typeof formSchema>;
 
 export type goalTypeVariant =

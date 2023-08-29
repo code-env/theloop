@@ -1,13 +1,24 @@
 "use client";
 
+import { PlusCircle, X } from "lucide-react";
+import React, { FC, useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/inputNew";
 import { currentTime } from "@/lib/getTime";
 import { cn } from "@/lib/utils";
-import { PlusCircle, X } from "lucide-react";
-import React, { FC, useState } from "react";
-
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/formNew";
+import { goalSchema, typeGoalSchema } from "@/lib/types";
+import { useForm } from "react-hook-form";
 interface DailyTask {
   day: string;
   date: string;
@@ -16,11 +27,33 @@ interface DailyTask {
 }
 
 const DayTask: FC<DailyTask> = ({ day, date, onClick, isActive }) => {
+  const form = useForm<typeGoalSchema>({
+    resolver: zodResolver(goalSchema),
+    defaultValues: {
+      title: "",
+      name: "",
+    },
+  });
+  function onSubmit(values: typeGoalSchema) {
+    const { name, title } = values;
+
+    const goal = {
+      name,
+      title,
+      time,
+    };
+
+    form.reset();
+  }
+
   const time = currentTime();
+
+  const isLoading = form.formState.isSubmitting;
+
   return (
     <section
       className={cn(
-        "flex-1 shadow-primary rounded-10 cursor-pointer p-2 bg-white h-[105px] slowmo overflow-hidden contentspace relative",
+        "flex-1 shadow-primary rounded-10 cursor-pointer p-2 bg-white h-[105px] slowmo overflow-hidden contentspace relative z-10",
         isActive && "h-[235px] cursor-default"
       )}
       onClick={onClick}
@@ -66,29 +99,64 @@ const DayTask: FC<DailyTask> = ({ day, date, onClick, isActive }) => {
           isActive && "absolute w-full h-full top-[70px] left-0 px-2"
         )}
       >
-        <section className="flex flex-col">
-          <section>
-            <p className="v-center justify-between">
-              <span> Add title</span>
-              <span className="v-center gap-1">
-                <Checkbox />
-                No title
-              </span>
-            </p>
-            <Input className="h-[25px] border focus:ring-0" />
-          </section>
-          <section>
-            <p>Task name</p>
-            <Input className="h-[25px] border focus:ring-0" />
-          </section>
-          <Button
-            className="v-center gap-2 mt-3 hover:bg-primaryDash hover:text-white slowmo self-end"
-            variant="ghost"
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="flex flex-col"
           >
-            <PlusCircle />
-            Add
-          </Button>
-        </section>
+            <FormField
+              control={form.control}
+              name="title"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="v-center justify-between">
+                    <span> Add title</span>
+                    <span className="v-center gap-1">
+                      <Checkbox />
+                      No title
+                    </span>
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      className="h-[25px] border focus:ring-0"
+                      disabled={isLoading}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="v-center justify-between">
+                    <span>Task name</span>
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      className="h-[25px] border focus:ring-0"
+                      disabled={isLoading}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <Button
+              className="v-center gap-2 text-primaryDash mt-3 bg-transparent hover:bg-transparent hover:text-green-500 self-end"
+              // variant="ghost"
+              disabled={isLoading}
+            >
+              <PlusCircle />
+              Add
+            </Button>
+          </form>
+        </Form>
       </section>
     </section>
   );
