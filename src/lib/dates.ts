@@ -11,7 +11,7 @@ const nextTwoDays = new Date();
 nextTwoDays.setDate(nextTwoDays.getDate() + 2);
 const dayAfterTomorrow = nextTwoDays.toISOString().split("T")[0];
 
-async function getGoalsForSpecificDays() {
+async function () {
   const goalsForToday = await prismadb.goal.findMany({
     where: {
       date: today,

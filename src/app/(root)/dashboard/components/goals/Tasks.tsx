@@ -3,8 +3,8 @@
 import { currentUser } from "@clerk/nextjs";
 import React from "react";
 
-const Tasks = async () => {
-  const user = await currentUser();
+const Tasks = () => {
+  const user = currentUser();
 
   console.log(user);
 
