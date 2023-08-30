@@ -19,6 +19,9 @@ import {
 } from "@/components/ui/formNew";
 import { goalSchema, typeGoalSchema } from "@/lib/types";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import { toast } from "sonner";
+import { convertDateString } from "@/lib/dateConverter";
 interface DailyTask {
   day: string;
   date: string;
@@ -34,16 +37,23 @@ const DayTask: FC<DailyTask> = ({ day, date, onClick, isActive }) => {
       name: "",
     },
   });
-  function onSubmit(values: typeGoalSchema) {
-    const { name, title } = values;
+  async function onSubmit(values: typeGoalSchema) {
+    try {
+      const { name, title } = values;
 
-    const goal = {
-      name,
-      title,
-      time,
-    };
+      const goal = {
+        name,
+        title,
+        time,
+        date: convertDateString(`${day} ${date}`),
+      };
 
-    form.reset();
+      await axios.post("/api/goals", goal);
+
+      form.reset();
+    } catch (error) {
+      toast.error("Something went Wrong!!");
+    }
   }
 
   const time = currentTime();
