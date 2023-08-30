@@ -6,24 +6,24 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const { userId } = auth();
+    // const { userId } = auth();
 
-    if (!userId) {
-      return new NextResponse("Unauthorized", {
-        status: 401,
-      });
-    }
+    // if (!userId) {
+    //   return new NextResponse("Unauthorized", {
+    //     status: 401,
+    //   });
+    // }
 
-    const { description, goalId, title } = body;
-    await prismadb.goalTask.create({
-      data: {
-        description,
-        goalId,
-        completed: false,
+    // const { description, goalId, title } = body;
+    // await prismadb.goalTask.create({
+    //   data: {
+    //     // description,
+    //     goalId,
+    //     // completed: false,
 
-        title,
-      },
-    });
+    //     title,
+    //   },
+    // });
 
     return NextResponse.json({
       msg: "Success",
