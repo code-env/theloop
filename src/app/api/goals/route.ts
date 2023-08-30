@@ -23,8 +23,22 @@ export async function POST(req: Request) {
       });
     }
 
+    const newGoal = await prismadb.goals.create({
+      data: {
+        date,
+        title,
+        userId,
+        subTasks: {
+          create: {
+            task: name,
+          },
+        },
+      },
+    });
+
     return NextResponse.json({
       msg: "Created succesfully",
+      goal: newGoal,
     });
   } catch (error: any) {
     console.log("ERROR WHILE CREATING POST", error.message);
