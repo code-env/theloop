@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import DayTask from "./daytask";
 import { nextdays as next3Days } from "@/lib/next-days";
+import Tasks from "./Tasks";
 
 const PersonalGoal = () => {
   const [activeUserIndex, setActiveUserIndex] = useState<number | null>(null);
@@ -16,16 +17,19 @@ const PersonalGoal = () => {
   };
 
   return (
-    <section className="flex items-start gap-5">
-      {nextdays.map(({ day, formattedDate }, index) => (
-        <DayTask
-          day={day}
-          key={index}
-          date={formattedDate}
-          isActive={index === activeUserIndex}
-          onClick={() => handleUserClick(index)}
-        />
-      ))}
+    <section className="contentspace">
+      <section className="flex items-start gap-5">
+        {nextdays.map(({ day, formattedDate }, index) => (
+          <DayTask
+            day={day}
+            key={index}
+            date={formattedDate}
+            isActive={index === activeUserIndex}
+            onClick={() => handleUserClick(index)}
+          />
+        ))}
+      </section>
+      {/* <Tasks /> */}
     </section>
   );
 };

@@ -70,9 +70,9 @@ model Goals {
 }
 
 model GoalTask {
-  id     String @id @default(auto()) @map("_id") @db.ObjectId
-  goalId String @db.ObjectId
-
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  goalId    String   @db.ObjectId
+  task      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   Goal      Goals    @relation(fields: [goalId], references: [id])

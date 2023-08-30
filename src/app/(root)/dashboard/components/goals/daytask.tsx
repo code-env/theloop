@@ -56,7 +56,7 @@ const DayTask: FC<DailyTask> = ({ day, date, onClick, isActive }) => {
     }
   }
 
-  const time = currentTime();
+  const time: string = currentTime();
 
   const isLoading = form.formState.isSubmitting;
 
@@ -143,7 +143,7 @@ const DayTask: FC<DailyTask> = ({ day, date, onClick, isActive }) => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="v-center justify-between">
-                    <span>Task name</span>
+                    <span>Sub task</span>
                   </FormLabel>
                   <FormControl>
                     <Input
