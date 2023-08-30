@@ -52,8 +52,8 @@ export async function GET(req: Request, { params }: { params: Params }) {
     //     });
     //   });
 
-      return NextResponse.json(results);
-    }
+    return NextResponse.json(results);
+    // }
   } catch (error: any) {
     console.log("ERROR WHILE POST", error.message);
     return new NextResponse("Internal server error", {
