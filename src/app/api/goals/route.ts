@@ -8,14 +8,20 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const { userId } = auth();
+    const { userId }: { userId: string | null } = auth();
 
     if (!userId)
-      return new NextResponse("Nigga you're unauthorized", {
+      return new NextResponse("Unauthorized", {
         status: 401,
       });
 
-    const { title, name } = body;
+    const { title, name, date, time } = body;
+
+    if (!title || !name) {
+      return new NextResponse("These fields are requuired", {
+        status: 401,
+      });
+    }
 
     return NextResponse.json({
       msg: "Created succesfully",

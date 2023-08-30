@@ -8,7 +8,7 @@ const Header = () => {
         <section>
           <Logo />
         </section>
-        <section className="flex items-center w-96 border h-10 overflow-hidden rounded">
+        <section className="flex items-center w-96 border border-primaryDash h-10 overflow-hidden rounded">
           <input
             type="text"
             placeholder="Search"
