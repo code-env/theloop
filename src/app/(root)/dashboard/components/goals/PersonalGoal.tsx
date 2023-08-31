@@ -1,11 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import DayTask from "./daytask";
 import { nextdays as next3Days } from "@/lib/next-days";
 import Tasks from "./Tasks";
 
-const PersonalGoal = () => {
+interface PersonalGoalProps {
+  userId: string;
+}
+
+const PersonalGoal: FC<PersonalGoalProps> = ({ userId }) => {
   const [activeUserIndex, setActiveUserIndex] = useState<number | null>(null);
   const nextdays = next3Days();
 
@@ -29,7 +33,7 @@ const PersonalGoal = () => {
           />
         ))}
       </section>
-      {/* <Tasks /> */}
+      <Tasks userId={userId} />
     </section>
   );
 };

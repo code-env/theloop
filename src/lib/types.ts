@@ -18,3 +18,28 @@ export type goalTypeVariant =
   | "Personal Goals"
   | "Accelerator Goals"
   | "Performance";
+
+export type Goal = {
+  id: string;
+  userId: string;
+  date: string;
+  title: string;
+  goalType: string;
+  createdAt: string;
+  updatedAt: string;
+  tasks: Task[];
+};
+type Task = {
+  id: string;
+  goalId: string;
+  task: string;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type DayData = {
+  day: string;
+  goal: Goal[];
+};
+
+export type userGoals = DayData[];
