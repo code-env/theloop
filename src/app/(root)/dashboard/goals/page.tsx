@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import GoalWrapper from "../components/goals/wrapper";
+import { auth } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "Goals",
@@ -7,9 +8,11 @@ export const metadata: Metadata = {
 };
 
 const Goals = async () => {
+  const { userId } = auth();
+
   return (
     <main className="px-4 flex flex-col gap-8">
-      <GoalWrapper />
+      <GoalWrapper userId={userId ? userId : ""} />
     </main>
   );
 };
