@@ -35,7 +35,7 @@ const PersonalGoal: FC<PersonalGoalProps> = ({ userId }) => {
     };
 
     getThreeDaysGoal();
-  }, []);
+  }, [userId]);
 
   const handleUserClick = (index: number) => {
     if (index !== activeUserIndex) {
