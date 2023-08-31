@@ -10,7 +10,7 @@ const Home = async () => {
   if (user) return redirect("/dashboard");
 
   return (
-    <main className="bg-primary min-h-screen text-white responsive-px mx-auto">
+    <main className="bg-primary min-h-screen text-white responsive-px mx-auto overflow-x-hidden">
       <Navbar />
       <Hero />
     </main>

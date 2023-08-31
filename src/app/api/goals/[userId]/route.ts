@@ -1,3 +1,4 @@
+import { generateDatesArray } from "@/lib/dates/datesForAyear";
 import prismadb from "@/lib/db";
 import { getNextThreeDays } from "@/lib/nextThreedays";
 import { NextResponse } from "next/server";
@@ -10,19 +11,17 @@ export async function GET(req: Request, { params }: { params: Params }) {
   try {
     const { userId } = params;
 
-    // console.log(userId);
-
-    const nextThreeDays = getNextThreeDays();
-
     const goals = await prismadb.goals.findMany({
       where: {
         userId,
       },
     });
 
+    const days = generateDatesArray();
+
     const subTasks = await prismadb.goalTask.findMany();
 
-    const results = nextThreeDays.map((day) => {
+    const results = days.map((day) => {
       const resolvedGoal = goals
         .filter((goal) => goal.date === day)
         .map((goal) => {

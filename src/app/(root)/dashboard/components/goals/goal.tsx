@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { Goal } from "@/lib/types";
-
 interface GoalProps {
   goalTask: Goal;
 }

@@ -23,6 +23,8 @@ export async function POST(req: Request) {
       });
     }
 
+    console.log(body);
+
     const newGoal = await prismadb.goals.create({
       data: {
         date,
