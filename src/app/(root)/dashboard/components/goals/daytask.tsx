@@ -45,7 +45,7 @@ const DayTask: FC<DailyTask> = ({ day, date, onClick, isActive }) => {
         name,
         title,
         time,
-        date: convertDateString(`${day} ${date}`),
+        date: convertDateString(`${day}${date}`),
       };
 
       await axios.post("/api/goals", goal);

@@ -3,7 +3,7 @@ import Logo from "@/components/logo";
 
 const Header = () => {
   return (
-    <header className="flex w-full h-20 border-b font-proxima">
+    <header className="flex w-full h-20 border-b font-proxima sticky top-0 bg-white">
       <div className="items-center px-20 justify-between flex max-w-7xl mx-auto w-full 2xl:px-0">
         <section>
           <Logo />

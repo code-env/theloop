@@ -16,13 +16,14 @@ const GoalWrapper: FC<GoalWrapperProps> = ({ userId }) => {
     useState<goalTypeVariant>("Personal Goals");
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 max-w-[846.656px] mx-auto min-w-[846.656px] personal">
       <GoalsHeader
         activeGoalVarint={activeGoalVarint}
         setActiveGoalVariant={setActiveGoalVariant}
       />
       {activeGoalVarint === "Personal Goals" && (
         <PersonalGoal userId={userId} />
+        // <span>personal goal</span>
       )}
       {activeGoalVarint === "Accelerator Goals" && <AcceleratorGoal />}
       {activeGoalVarint === "Performance" && <Performance />}

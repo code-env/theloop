@@ -17,7 +17,7 @@ export default function AuthLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
-          <main className=" h-screen flex items-center justify-center w-screen bg-primary bg-red-600">
+          <main className=" h-screen flex items-center justify-center w-screen bg-primary bg-red-600 font-proxima">
             {children}
           </main>
         </body>

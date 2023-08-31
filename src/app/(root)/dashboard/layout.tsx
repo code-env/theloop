@@ -17,7 +17,7 @@ const DashboardLayout = ({ children }: dashboard) => {
           <Header />
           <section className="max-w-7xl mx-auto flex font-proxima">
             <Sidebar />
-            <section className="py-4 w-full flex gap-4">
+            <section className="w-full flex gap-4">
               <section className="flex-1">{children}</section>
               <Infos />
             </section>
