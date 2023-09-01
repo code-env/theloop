@@ -98,9 +98,18 @@ const PersonalGoal: FC<PersonalGoalProps> = ({ userId }) => {
 
                       return <Goal goalTask={g} key={index} />;
                     })
-                  : goal.map((g, index) => {
-                      return <Goal goalTask={g} key={index} />;
-                    })}
+                  : goal
+                      .sort((a, b) => {
+                        const dateA = new Date(a.createdAt);
+                        const dateB = new Date(b.createdAt);
+
+                        console.log(dateB.getTime() - dateA.getTime());
+
+                        return dateB.getTime() - dateA.getTime();
+                      })
+                      .map((g, index) => {
+                        return <Goal goalTask={g} key={index} />;
+                      })}
               </section>
             </section>
           );
