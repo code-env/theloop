@@ -38,9 +38,19 @@ export async function POST(req: Request) {
       },
     });
 
+    const updatedGoal = await prismadb.goalTask.findFirst({
+      where: {
+        goalId: newGoal.id,
+      },
+    });
+
+    const result = { ...newGoal, tasks: [updatedGoal] };
+
+    // console.log(result);
+
     return NextResponse.json({
       msg: "Created succesfully",
-      goal: newGoal,
+      goal: result,
     });
   } catch (error: any) {
     console.log("ERROR WHILE CREATING POST", error.message);

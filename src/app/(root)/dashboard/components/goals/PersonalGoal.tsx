@@ -1,11 +1,9 @@
-"use client";
-
 import React, { FC, useEffect, useState } from "react";
 import DayTask from "./daytask";
 import { nextdays as next3Days } from "@/lib/next-days";
 import { formatDate, generateDatesArray } from "@/lib/dates/datesForAyear";
 import axios from "axios";
-import { userGoals } from "@/lib/types";
+import { userGoals, Goal as Goooal } from "@/lib/types";
 import Goal from "./goal";
 
 interface PersonalGoalProps {
@@ -17,6 +15,8 @@ const PersonalGoal: FC<PersonalGoalProps> = ({ userId }) => {
   const nextdays = next3Days();
 
   const [goals, setGoals] = useState<userGoals>([]);
+  const [userGoalsF, setUserGoals] = useState<Goooal[]>([]);
+  const [isNewGoal, setIsNewGoal] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -26,7 +26,9 @@ const PersonalGoal: FC<PersonalGoalProps> = ({ userId }) => {
   useEffect(() => {
     const getThreeDaysGoal = async () => {
       try {
-        const { data } = await axios.get(`/api/goals/${userId}`);
+        const { data }: { data: userGoals } = await axios.get(
+          `/api/goals/${userId}`
+        );
 
         setGoals(data);
       } catch (error: any) {
@@ -41,19 +43,42 @@ const PersonalGoal: FC<PersonalGoalProps> = ({ userId }) => {
     if (index !== activeUserIndex) {
       setActiveUserIndex(index);
     }
-    // setActiveUserIndex(index === activeUserIndex ? null : index);
   };
 
-  const dates = generateDatesArray();
+  useEffect(() => {
+    // Merge all goal arrays into a single array
+    const updatedUserGoals = ([] as Goooal[]).concat(
+      ...goals.map((g) => g.goal)
+    );
+
+    // Sort the userGoalsF array by createdAt in ascending order (oldest to newest)
+    updatedUserGoals.sort((a, b) => {
+      const dateA = new Date(a.createdAt);
+      const dateB = new Date(b.createdAt);
+
+      console.log(dateB.getTime() - dateA.getTime());
+
+      return dateB.getTime() - dateA.getTime();
+    });
+
+    setUserGoals(updatedUserGoals);
+  }, [goals]);
+
+  console.log(userGoalsF);
+
+  const handleChange = (newGoal: Goooal) => {
+    if (newGoal) {
+      setIsNewGoal(true);
+      setUserGoals((prev) => [...prev, newGoal]);
+    }
+  };
 
   return (
     <section className="contentspace overflow-x-auto  flex-1 scrollbar-thin scrollbar-thumb-gray-300">
       <section className="flex items-start gap-5">
         {goals.map(({ day, goal }, index) => {
           const convertedDate = formatDate(day);
-
           const testDate = convertedDate.split(",");
-
           const userDay = testDate[0];
           const userDate = testDate[1];
 
@@ -64,12 +89,18 @@ const PersonalGoal: FC<PersonalGoalProps> = ({ userId }) => {
                 day={userDay}
                 isActive={activeUserIndex === index}
                 onClick={() => handleUserClick(index)}
+                updated={handleChange}
               />
-              <section>
-                {goal.map((g, index) => {
-                  // console.log(g);
-                  return <Goal goalTask={g} key={index} />;
-                })}
+              <section className="contentspace">
+                {isNewGoal
+                  ? userGoalsF.map((g, index) => {
+                      if (g.date !== day) return null;
+
+                      return <Goal goalTask={g} key={index} />;
+                    })
+                  : goal.map((g, index) => {
+                      return <Goal goalTask={g} key={index} />;
+                    })}
               </section>
             </section>
           );
