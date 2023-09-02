@@ -24,10 +24,10 @@ const SelectedGoal: FC<SelectedGoalProps> = ({
     const deletePromise = async () => {
       try {
         await axios.delete(`/api/goals/goal/${selected?.id}`);
+
+        setSelectedGoal(null);
       } catch (error: any) {
         toast.error(error.response.data.msg);
-
-        // toast.error(error.message.msg);
       }
     };
 
@@ -36,10 +36,6 @@ const SelectedGoal: FC<SelectedGoalProps> = ({
       success: (data: any) => {
         if (data?.msg === "deleted") {
           initialGoals.filter((goal) => goal?.date !== data?.deleted?.date);
-
-          console.log(initialGoals);
-
-          setSelectedGoal(null);
         }
 
         return `Deleted`;
