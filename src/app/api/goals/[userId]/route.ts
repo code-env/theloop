@@ -54,7 +54,7 @@ export async function GET(req: Request, { params }: { params: Params }) {
     return NextResponse.json(results);
     // }
   } catch (error: any) {
-    console.log("ERROR WHILE POST", error.message);
+    console.log("ERROR WHILE CREATING POST", error.message);
     return new NextResponse("Internal server error", {
       status: 500,
     });

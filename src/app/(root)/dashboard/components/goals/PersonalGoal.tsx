@@ -56,7 +56,7 @@ const PersonalGoal: FC<PersonalGoalProps> = ({ userId }) => {
       const dateA = new Date(a.createdAt);
       const dateB = new Date(b.createdAt);
 
-      console.log(dateB.getTime() - dateA.getTime());
+      // console.log(dateB.getTime() - dateA.getTime());
 
       return dateB.getTime() - dateA.getTime();
     });
@@ -64,7 +64,7 @@ const PersonalGoal: FC<PersonalGoalProps> = ({ userId }) => {
     setUserGoals(updatedUserGoals);
   }, [goals]);
 
-  console.log(userGoalsF);
+  // console.log(userGoalsF);
 
   const handleChange = (newGoal: Goooal) => {
     if (newGoal) {
@@ -91,24 +91,32 @@ const PersonalGoal: FC<PersonalGoalProps> = ({ userId }) => {
                 onClick={() => handleUserClick(index)}
                 updated={handleChange}
               />
-              <section className="contentspace">
+              <section className="contentspace mt-4">
                 {isNewGoal
                   ? userGoalsF.map((g, index) => {
                       if (g.date !== day) return null;
 
-                      return <Goal goalTask={g} key={index} />;
+                      return (
+                        <Goal
+                          goalTask={g}
+                          key={index}
+                          initialGoals={userGoalsF}
+                        />
+                      );
                     })
                   : goal
                       .sort((a, b) => {
                         const dateA = new Date(a.createdAt);
                         const dateB = new Date(b.createdAt);
 
-                        console.log(dateB.getTime() - dateA.getTime());
+                        // console.log(dateB.getTime() - dateA.getTime());
 
                         return dateB.getTime() - dateA.getTime();
                       })
                       .map((g, index) => {
-                        return <Goal goalTask={g} key={index} />;
+                        return (
+                          <Goal goalTask={g} key={index} initialGoals={goal} />
+                        );
                       })}
               </section>
             </section>
