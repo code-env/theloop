@@ -17,7 +17,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/formNew";
-import { goalSchema, typeGoalSchema } from "@/lib/types";
+import { Goal, goalSchema, typeGoalSchema, userGoals } from "@/lib/types";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { toast } from "sonner";
@@ -27,9 +27,10 @@ interface DailyTask {
   date: string;
   isActive: boolean;
   onClick: () => void;
+  updated: (goal: Goal) => void
 }
 
-const DayTask: FC<DailyTask> = ({ day, date, onClick, isActive }) => {
+const DayTask: FC<DailyTask> = ({ day, date, onClick, isActive, updated }) => {
   const form = useForm<typeGoalSchema>({
     resolver: zodResolver(goalSchema),
     defaultValues: {
@@ -48,7 +49,11 @@ const DayTask: FC<DailyTask> = ({ day, date, onClick, isActive }) => {
         date: convertDateString(`${day}${date}`),
       };
 
-      await axios.post("/api/goals", goal);
+      const { data } = await axios.post("/api/goals", goal);
+
+      updated(data.goal);
+
+
 
       form.reset();
     } catch (error) {

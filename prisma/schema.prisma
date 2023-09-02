@@ -75,5 +75,5 @@ model GoalTask {
   task      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  Goal      Goals    @relation(fields: [goalId], references: [id])
+  Goal      Goals    @relation(fields: [goalId], references: [id], onDelete: Cascade)
 }
